@@ -8,7 +8,7 @@ lab:
 
 この演習では、検索コマンドを使用してメッセージ拡張機能を作成します。 まず、Teams Toolkit プロジェクト テンプレートを使用してプロジェクトをスキャフォールディングし、それを更新して、ローカル開発に Azure AI Bot Service リソースを使用するように構成します。 ボット サービスとローカルで実行されている Web サービスの間の通信を有効にする開発トンネルを作成します。 次に、必要なリソースをプロビジョニングするようにアプリを準備します。 最後に、メッセージ拡張機能を実行してデバッグし、Microsoft Teams でテストします。
 
-:::image type="content" source="../media/2-search-results-nuget.png" alt-text="Microsoft Teams の検索ベースのメッセージ拡張機能によって返される検索結果のスクリーンショット。" lightbox="../media/2-search-results-nuget.png":::
+![Microsoft Teams の検索ベースのメッセージ拡張機能によって返される検索結果のスクリーンショット。](../media/2-search-results-nuget.png)
 
 ## タスク 1 - Teams Toolkit for Visual Studio を使用して新しいプロジェクトを作成する
 
@@ -19,8 +19,7 @@ lab:
 1. [新しいプロジェクトの作成] 画面で、**[すべてのプラットフォーム]** ドロップダウンを展開し、**Microsoft Teams**を選択します。 **次へ**を選んで続行します。
 1. [新しいプロジェクトの構成] を示すスクリーンショット。 次の値を指定します。
     1. **プロジェクト名**: MsgExtProductSupport
-    1. **場所**: 任意の場所を選択します
-    1. **ソリューションとプロジェクトを同じディレクトリに配置する**: オン
+    1. **場所**: 既定の場所を選択します
 1. **[作成]** を選択してプロジェクトをスキャフォールディングする
 1. [新しい Teams アプリケーションの作成] ダイアログで、**[All app types (すべてのアプリの種類)]** ドロップダウンを展開し、**Message 拡張機能**を選択します。
 1. テンプレートの一覧で **[カスタム検索結果]** を選択します。
@@ -149,7 +148,7 @@ Visual Studio での続行:
 Visual Studio での続行:
 
 1. プロジェクトのルート フォルダーで、**teamsapp.local.yml** を開きます
-1. ファイルで、**botAadApp/create** アクションを使用する手順を見つけて、次のように置き換えます。
+1. ファイルで、**botAadApp/create** アクション (17 から 26 行目) を使用する手順を見つけて、次のように置き換えます。
 
     ```yml
       - uses: aadApp/create
@@ -181,7 +180,7 @@ Visual Studio での続行:
           bicepCliVersion: v0.9.1
     ```
 
-1. ファイルで、**botFramework/create** アクションを使用する手順を削除します
+1. ファイルで、**botFramework/create** アクション (53 から 62 行目)を使用する手順を削除します。
 1. 変更を保存。
 
 アプリの登録は 2 つの手順でプロビジョニングされます。まず、**aadApp/create** アクションはクライアント シークレットを使用して新しいマルチテナント アプリ登録を作成し、その出力を環境変数として **.env.local** ファイルに書き込みます。 その後、**aadApp/update** アクションは、**entra.bot.manifest.json** ファイルを使用してアプリの登録を更新します。
@@ -192,18 +191,18 @@ Visual Studio での続行:
 
 ユーザーがメッセージ拡張機能と対話すると、Bot サービスは Web サービスに要求を送信します。 開発中、Web サービスはマシン上でローカルに実行されます。 Bot Service が Web サービスに到達できるようにするには、開発トンネルを使用してマシン外に公開する必要があります。
 
-:::image type="content" source="../media/18-select-dev-tunnel.png" alt-text="Visual Studio で展開された [開発トンネル] メニューのスクリーンショット。" lightbox="../media/18-select-dev-tunnel.png":::
+![Visual Studio で展開された [開発トンネル] メニューのスクリーンショット。](../media/18-select-dev-tunnel.png)
 
 Visual Studio での続行:
 
-1. ツール バーで、** Microsoft Teams (ブラウザー) ボタンの横にあるドロップダウン**を選択して、デバッグ プロファイル メニューを展開します
+1. ツール バーで、スタートアップ プロジェクトとして **MsgExtProductSupport** が選択されていることを確認し、**Microsoft Teams (ブラウザー) ボタン**または **[プロジェクトの開始]** の横にあるドロップダウンを選択して、デバッグ プロファイル メニューを展開します。
 1. **[Dev Tunnels (no active tunnel) (開発トンネル (アクティブなトンネルなし))]** メニューを展開し、**[Create a Tunnel... (トンネルの作成...)]** を選択します
 1. ダイアログで、次の値を指定します。
-    1. **アカウント**: 任意のアカウントを選択します
+    1. **アカウント**: Microsoft 365 ユーザー アカウントでログインします。
     1. **名前**: MsgExtProductSupport
     1. **トンネルの種類**: 一時的
     1. **アクセス**: パブリック
-1. **[OK]** を選択してトンネルを作成します。新しいトンネルが現在アクティブなトンネルであることを示すプロンプトが表示されます
+1. **[OK]** を選択してトンネルを作成します
 1. **[OK]** を選択してプロンプトを閉じます
 
 ## タスク 4 - アプリ マニフェストを更新する
@@ -212,9 +211,9 @@ Visual Studio での続行:
 
 まず、アプリ アイコンをダウンロードし、プロジェクトに追加します。
 
-:::image type="content" source="../media/app/color-local.png" alt-text="ローカル開発に使用される色アイコン。" lightbox="../media/app/color-local.png":::
+![ローカル開発に使用される色アイコン。](../media/app/color-local.png)
 
-:::image type="content" source="../media/app/color-dev.png" alt-text="リモート開発に使用される色アイコン。" lightbox="../media/app/color-dev.png":::
+![リモート開発に使用される色アイコン。](../media/app/color-dev.png)
 
 1. **color-local.png** と **color-dev.png** をダウンロードします
 1. **appPackage** フォルダーに、**color-local.png** と **color-dev.png** を追加します
@@ -236,10 +235,9 @@ Visual Studio での続行:
 最後に、アプリ マニフェスト ファイル内のアイコン、名前、および説明オブジェクトを更新します。
 
 1. **appPackage** フォルダーで、**manifest.json** という名前のファイルを開きます。
-1. ファイルで、**icon**、**name、および **description** オブジェクトを次の値で更新します。
+1. ファイルで、**icons**、**name**、および **description** オブジェクトを次のように置き換えます (13 から 24 行目)。
 
     ```json
-    {
         "icons": {
             "color": "color-${{TEAMSFX_ENV}}.png",
             "outline": "outline.png"
@@ -251,8 +249,7 @@ Visual Studio での続行:
         "description": {
             "short": "Product look up tool.",
             "full": "Get real-time product information and share them in a conversation."
-        }
-    }
+        },
     ```
 
 1. 変更を保存します
@@ -261,18 +258,18 @@ Visual Studio での続行:
 
 Teams ツールキットを使用して、すべてが整った状態で、Teams アプリの依存関係の準備プロセスを実行して、必要なリソースをプロビジョニングします。
 
-:::image type="content" source="../media/19-prepare-teams-app-dependencies.png" alt-text="Visual Studio で展開された Teams Toolkit メニューのスクリーンショット。" lightbox="../media/19-prepare-teams-app-dependencies.png":::
+![Visual Studio で展開された Teams Toolkit メニューのスクリーンショット。](../media/19-prepare-teams-app-dependencies.png)
 
 Teams アプリの依存関係の準備プロセスでは、アクティブな開発トンネル URL を使用して .env.local ファイル内の **BOT_ENDPOINT** と **BOT_DOMAIN** 環境変数を更新し、 **teamsapp.local.yml** ファイルで説明されているアクションを実行します。
 
 Visual Studio での続行:
 
-1. Solution Explorer で、**MsgExtProductSupport** プロジェクトを右クリックします
+1. ソリューション エクスプローラーで、ソリューション エクスプローラーの **TeamsApp** を右クリックします。
 1. **Teams Toolkit** メニューを展開し、**[Prepare Teams App Dependencies (Teams アプリの依存関係を準備)]** を選択します
 1. **Microsoft 365 アカウント**ダイアログで、開発者テナントのアカウントを選択し、**[続行] ** を選択します。
 1. **[プロビジョニング]** ダイアログで、Azure へのリソースのデプロイに使用するアカウントを選択し、次の値を指定します。
     1. **サブスクリプション名**: 使用するサブスクリプションをドロップダウンから選択します
-    1. **リソース グループ**: [新規...] を選択してダイアログを開き、「**rg-msgext-product-support-local」と入力し、**[OK]** を選択します
+    1. **リソース グループ**: ドロップダウンを展開し、ユーザー アカウント用に事前に作成されたリソース グループを選択します。
     1. **リージョン**: ドロップダウンで、最も近いリージョンを選択します
 1. **[プロビジョニング]** を選択して Azure でリソースをプロビジョニングします
 1. Teams Toolkit の警告プロンプトで、**[プロビジョニング]** を選択します
@@ -287,7 +284,8 @@ Visual Studio での続行:
 Visual Studio での続行:
 
 1. F5 キーを押してデバッグ セッションを開始し、新しいブラウザー ウィンドウを開くと Microsoft Teams Web クライアントに移動されます。
-1. メッセージが表示されたら、Microsoft 365  アカウント資格情報を入力します。
+1. 異なる SSL 証明書を信頼するように求められたら、**[はい]** を選択し、セキュリティ警告に再度 **[はい]** を選択します。 証明書を受け入れた後、デバッガーを再起動する必要がある場合があります。
+1. メッセージが表示されたら、Microsoft 365 アカウント資格情報を入力します。
 
   > [!IMPORTANT]
   > Microsoft Teams に「This app cannot be found (このアプリが見つかりません)」というメッセージが含まれるダイアログ ボックスが表示された場合は、次の手順に従ってアプリ パッケージを手動でアップロードします
@@ -303,7 +301,7 @@ Visual Studio での続行:
 
 1. アプリのインストール ダイアログで、**[追加]** を選びます。
 1. 新規または既存の Microsoft Teams チャットを開きます
-1. メッセージ作成領域で、**[...] **を選択します アプリのポップアップが開きます
+1. メッセージ作成領域で、「**/apps**」と入力を開始してポップアップを開きます。
 1. アプリの一覧で **C[ontoso 製品]** を選択してメッセージ拡張機能を開きます
 1. テキスト ボックスに「 **Bot Builder** 」と入力して検索を開始します。
 1. 結果の一覧で、作成メッセージ ボックスにカードを埋め込む結果を選択します
