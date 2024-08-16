@@ -82,18 +82,11 @@ lab:
 
 このタスクを早期に実行することで、Microsoft 365 検索エンジンが準備が整うまでに検出される可能性が高くなります。
 
-## タスク 4 - Teams Toolkit for Visual Studio Code をインストールして設定する
+## タスク 4: Teams Toolkit for Visual Studio Code を構成する
 
 このタスクでは、現在のバージョンの [Teams Toolkit for Visual Studio Code](https://learn.microsoft.com/microsoftteams/platform/toolkit/teams-toolkit-fundamentals?pivots=visual-studio-code-v5) をインストールします。 これを行う最も簡単な方法は、Visual Studio Code 内から直接行うことです。
 
-> [!NOTE]
-> プレリリース バージョンは、この課題ではテストされていないため、インストールしないでください。
-
 1. Visual Studio Code で**作業フォルダー**を開きます。 このフォルダーの作成者を信頼するように求められる場合があります。その場合は、実行してください。
-
-1. 左サイド バーで **[拡張機能]** 1️⃣ を選択します。 検索ボックス 2️⃣ に「 **teams** 」と入力し、検索結果で **Teams Toolkit** を探します。 **[インストール]** 3️⃣ を選択します。
-
-    ![Visual Studio Code への Teams Toolkit インストールのスクリーンショット。](../media/1-04-install-teams-toolkit-01.png)
 
 1. 次に、左側 の **Teams Toolkit** アイコン1️⃣ を選択します。 新しいプロジェクトを作成するためのオプションが提供されている場合は、おそらく間違ったフォルダーにいます。 **Visual Studio Code のファイル メニューで ****[フォルダーを開く]** を選択し、**msgext-northwind-inventory-ts** フォルダーを直接開きます。 次に示すように、アカウント、環境などのセクションが表示されます。
 
@@ -103,7 +96,7 @@ lab:
 
 1. ブラウザー ウィンドウが開き、Microsoft 365 にログインできます。 **[You are signed in now and close this page (サインしました。このページを閉じることができます)]** と表示されたら、それを行ってください。
 
-1. 最後に、**[Sideloading enabled (サイドローディングが有効です)]** の横に緑色のチェックマークが表示されることを確認します。 そうでない場合は、ユーザー アカウントに Teams アプリケーションをアップロードするアクセス許可がないことを意味します。 このアクセス許可は、デフォルトでは「オフ」です。[ユーザーがカスタム アプリをアップロードできるようにするための手順](https://learn.microsoft.com/microsoftteams/teams-custom-app-policies-and-settings#allow-users-to-upload-custom-apps)はこちらです。
+1. 最後に、**[カスタム アプリのアップロードが有効になっている]** の横に緑色のチェックマークが表示されることを確認します。 そうでない場合は、ユーザー アカウントに Teams アプリケーションをアップロードするアクセス許可がないことを意味します。 このアクセス許可は、デフォルトでは「オフ」です。[ユーザーがカスタム アプリをアップロードできるようにするための手順](https://learn.microsoft.com/microsoftteams/teams-custom-app-policies-and-settings#allow-users-to-upload-custom-apps)はこちらです。
 
     ![サイドローディングが有効になっていることを確認するスクリーンショット。](../media/1-04-setup-teams-toolkit-03.png)
 

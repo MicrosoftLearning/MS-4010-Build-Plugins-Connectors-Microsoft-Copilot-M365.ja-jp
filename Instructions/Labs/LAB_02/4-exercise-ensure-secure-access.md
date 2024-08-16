@@ -64,12 +64,12 @@ static IEnumerable<ExternalItem> Transform(IEnumerable<DocsArticle> content)
 Web ブラウザーで以下を行います。
 
 1. Azure portal ([https://portal.azure.com](https://portal.azure.com)) に移動し、職場または学校のアカウントでサインインします。
-1. サイド バーから **[Microsoft Entra ID]** を選択します。
-1. ナビゲーションから、**[ユーザー]** を選択します。
+1. サイド バーから **[Microsoft Entra ID]** の下の **[ビュー]** を選択します。
+1. ナビゲーションから **[管理]** > 、**[ユーザー]** を選択します。
 1. ユーザーの一覧から、名前を選択していずれかのユーザーを開きます。
 1. **Object ID** プロパティの値をコピーします。
 
-   :::image type="content" source="../media/8-user.png" alt-text="Azure AD ポータルのユーザーのプロファイルのスクリーンショット":::
+  ![Azure AD ポータルのユーザーのプロファイルのスクリーンショット](../media/8-user.png)
 
 この値を使用して、特定の Markdown ページの新しい ACL を定義します。
 
@@ -188,15 +188,7 @@ Web ブラウザーで以下を行います。
 
 次に、選択したユーザー グループのみが別のページにアクセスできるようにコードを拡張しましょう。
 
-Web ブラウザーで以下を行います。
-
-1. Azure portal ([https://portal.azure.com](https://portal.azure.com)) に移動し、職場または学校のアカウントでサインインします。
-1. サイド バーから **[Microsoft Entra ID]** を選択します。
-1. ナビゲーションから、**[グループ]** を選択します。
-1. グループの一覧から、グループの名前を選択して、いずれかのグループを開きます。
-1. **Object ID** プロパティの値をコピーします。
-
-:::image type="content" source="../media/8-group.png" alt-text="グループ ページが開いている Azure portal のスクリーンショット。":::
+![グループ ページが開いている Azure portal のスクリーンショット。](../media/8-group.png)
 
 この値を使用して、特定の Markdown ページの新しい ACL を定義します。
 

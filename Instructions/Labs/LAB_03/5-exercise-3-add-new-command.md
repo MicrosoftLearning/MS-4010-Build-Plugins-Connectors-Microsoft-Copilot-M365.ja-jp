@@ -46,19 +46,27 @@ lab:
    ```
 
 > [!NOTE] 
-> **id** は、UI とコードの間のリンクです。 この値は、**discount/product/SearchCommand.ts** ファイルで **COMMAND_ID**として定義されます。 これらの各ファイルに、**id** の値に対応する一意の **COMMAND_ID** がどのように含まれているかを確認します。
+> **id** は、UI とコードの間のリンクです。 この値は、**discount/product/SearchCommand.ts** ファイルで **COMMAND_ID** として定義されます。 これらの各ファイルに、**id** の値に対応する一意の **COMMAND_ID** がどのように含まれているかを確認します。
 
 ## タスク 2 -「companySearc」コマンドのハンドラーを作成する
 
 この演習では、既存のコードの一部をコピーして、コマンドの新しいハンドラーを作成します。 
 
-1. Visual Studio Code で、**productSearchCommand.ts** をコピーし、同じフォルダーに貼り付けてコピーを作成します。 このファイルを **customerSearchCommand.ts** に名前変更します。
+1. Visual Studio Code の**作業ディレクトリ**の下で **.\src\messageExtensions** に移動し、'**productSearchCommand.ts**' をコピーし、同じフォルダーに貼り付けてコピーを作成します。 このファイルを **customerSearchCommand.ts** に名前変更します。
+
+1. 7 行目を次のように変更します。
+
+    ```typescript
+    import { searchProductsByCustomer } from "../northwindDB/products";
+    ```
 
 1. 10 行目を次のように変更します:
 
    ```javascript
    const COMMAND_ID = "companySearch";
    ```
+
+
 
 1. **handleTeamsMessagingExtensionQuery** の内容を次のように置き換えます。
 
@@ -139,7 +147,7 @@ lab:
 
 このタスクでは、**会社名による**製品検索を実装して会社の注文済み製品の一覧を返します。 クエリからのテーブル出力は次のようになります。
 
-| テーブル         | ［検索］        | 次によって参照    |
+| テーブル         | Find        | 次によって参照    |
 | ------------- | ----------- | ------------- |
 | 顧客      | 顧客 ID | 顧客名 |
 | 注文        | 注文 ID    | Customer ID   |

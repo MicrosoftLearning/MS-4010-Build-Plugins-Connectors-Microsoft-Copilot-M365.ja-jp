@@ -13,11 +13,6 @@ lab:
 
 ## タスク 1 - Microsoft Copilot for Microsoft 365 でテストする (単一パラメータ)
 
-1. Microsoft Teams 内から、**[Try the new Teams (新しい Teams を試す)]** スイッチを切り替えて **新しい Teams** クライアント アプリケーションに移動します。
-
-    > [!IMPORTANT]
-    > Microsoft Copilot for Microsoft 365 は、**新しい Teams** 環境でのみ機能します。 このタスクをお見逃しなく! **新しい Teams** に切り替えた後にデバッガーを再起動すると、デバッガーの起動後にエラー メッセージが表示されることがあります。 これは既知の問題です。エラー ダイアログを閉じて、テストを続けてください。
-
 1. 左側のアプリケーション レールで、**Copilot** アプリを選択します。
 
 1. 作成ボックスの右側で、**プラグイン**アイコン 1️⃣ を選択し、 **Northwind Inventory** プラグイン 2️⃣ を有効にします。

@@ -19,8 +19,8 @@ lab:
 Web ブラウザーで以下を行います。
 
 1. **Azure portal** ([https://portal.azure.com](https://portal.azure.com)) に移動します。
-1. ナビゲーションから **Microsoft Entra ID** を選択します。
-1. サイド ナビゲーションから、**[アプリの登録]** を選択します。
+1. ナビゲーションから **[Microsoft Entra ID]** の下の **[ビュー]** を選択します。
+1. サイド ナビゲーションから、**[管理]** を展開し、**[アプリの登録]** を選択します。
 1. トップ ナビゲーションで、**[新規登録]** を選択します。
 1. 次の値を指定します。
    1. **名前:** MSGraph docs Graph connector
@@ -34,8 +34,9 @@ Web ブラウザーで以下を行います。
 
 Web ブラウザーでの続行:
 
-1. サイド ナビゲーションで、**[証明書とシークレット]** を選択します。
-1. **[クライアント シークレット]** タブをアクティブ化して、**[新しいクライアント シークレット]** ボタンを選択します。
+1. サイド ナビゲーションから、**[管理]** を展開し、**[証明書とシークレット]** を選択します。
+1. **[クライアント シークレット]** タブを選択してから、**[新しいクライアント シークレット]** を選択します。
+1. **MSGraph ドキュメント Graph コネクタ シークレット**の**説明**を入力します。
 1. **[追加]** を選択してシークレットを作成します。
 1. 新しいシークレットの **[値]** をコピーします。 この情報は後で必要になります。
 
@@ -60,11 +61,12 @@ Web ブラウザーでの続行:
 
 Entra アプリの登録を構成した後の次の手順は、Graph コネクタのコードを実装するコンソール アプリを作成することです。
 
-ターミナルで次の手順を実行します。
+Windows ターミナルを開き、新しいコンソール アプリケーションを作成します。
 
-1. 新しいフォルダーを作成し、作業ディレクトリを新しいフォルダーに変更します。
+1. 「`mkdir documents\console_app`」と入力して新しいフォルダーを作成し、「`cd .\documents\console_app`」と入力して新しいフォルダーに移動します。
 1. `dotnet new console` を実行して新しいコンソール アプリケーションを作成します。
 1. 依存関係を追加します。これは、コネクタをビルドするために必要です。
+   1. パッケージ ソースとして Nuget.org を追加し、`dotnet nuget add source https://api.nuget.org/v3/index.json -n nuget.org` を実行します
    1. Microsoft 365 で認証するために必要なライブラリを追加するには、`dotnet add package Azure.Identity` を実行します。
    1. Graph API と通信するクライアント ライブラリを追加するには、`dotnet add package Microsoft.Graph` を実行します。
    1. 次の手順で構成するユーザー シークレットを操作するために必要なライブラリを追加するには、`dotnet add package Microsoft.Extensions.Configuration.UserSecrets` を実行します。
@@ -88,9 +90,9 @@ Entra アプリの登録を作成した後、アプリケーションとテナ�
 
 ## タスク 6 - Microsoft Graph クライアントを作成する
 
-カスタム Graph コネクタでは、Microsoft Graph API を使用して外部接続と -items を管理します。 まず、プロジェクトにインストールした **Microsoft.Graph** NuGet パッケージから `GraphServiceClient` クラスのインスタンスを作成します。
+カスタム Graph コネクタでは、Microsoft Graph API を使用して外部接続と項目を管理します。 まず、プロジェクトにインストールした **Microsoft.Graph** NuGet パッケージから `GraphServiceClient` クラスのインスタンスを作成します。
 
-1. 目的のコード エディタでプロジェクトを開きます。
+1. Visual Studio 2022 でプロジェクトを開きます。
 1. プロジェクトに、**GraphService.cs** という名前の新しいコード ファイルを追加します。
 1. ファイルで、使用する名前空間への参照を追加することから始めます。次を追加します。
 
@@ -141,7 +143,7 @@ Entra アプリの登録を作成した後、アプリケーションとテナ�
    }
    ```
 
-1. 資格情報として、前に保存した Entra アプリの登録に関する情報を使用して、`GraphServiceClient` の新しいインスタンスを作成します。
+1. 取得中に、以前に保存した Entra アプリの登録に関する情報を含む資格情報を使用して、`GraphServiceClient` の新しいインスタンスを作成します。
 
    ```csharp
    var builder = new ConfigurationBuilder().AddUserSecrets<GraphService>();
@@ -174,7 +176,7 @@ Entra アプリの登録を作成した後、アプリケーションとテナ�
        {
          if (_client is null)
          {
-           var builder = new ConfigurationBuilder().   AddUserSecrets<GraphService>();
+           var builder = new ConfigurationBuilder().AddUserSecrets<GraphService>();
            var config = builder.Build();
      
            var clientId = config["EntraId:ClientId"];
@@ -226,7 +228,7 @@ Entra アプリの登録を作成した後、アプリケーションとテナ�
        {
          Id = "msgraphdocs",
          Name = "Microsoft Graph documentation",
-         Description = "Documentation for Microsoft Graph API which    explains what Microsoft Graph is and how to use it."
+         Description = "Documentation for Microsoft Graph API which explains what Microsoft Graph is and how to use it."
        };
      }
    }
@@ -389,6 +391,7 @@ Entra アプリの登録を作成した後、アプリケーションとテナ�
    ```csharp
    async static Task CreateConnection()
    {
+
    }
    ```
 
