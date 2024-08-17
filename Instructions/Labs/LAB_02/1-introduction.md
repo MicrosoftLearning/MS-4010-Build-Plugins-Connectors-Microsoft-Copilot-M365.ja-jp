@@ -10,7 +10,7 @@ lab:
 
 Microsoft 365 内でこの外部情報を公開するには、カスタム Microsoft Graph コネクタを構築します。 Microsoft Graph コネクタは、外部システムに接続 (1) してコンテンツを取得し、Microsoft Entra ID から情報を使用して Microsoft 365 で認証 (2) し、Microsoft Graph API を使用して Microsoft 365 にコンテンツをインポート (3) します。
 
-:::image type="content" source="../media/1-graph-connector-concept.png" alt-text="Microsoft Graph コネクタの概念的な動作を示す図。":::
+![Microsoft Graph コネクタの概念的な動作を示す図。](../media/1-graph-connector-concept.png)
 
 このモジュールでは、Microsoft Graph コネクタの概要と、組織内での使用を検討する必要がある理由について説明します。 ローカル マークダウン ファイルを Microsoft 365 にインポートする Microsoft Graph コネクタを構築します。 また、インポートする外部コンテンツが、適切に割り当てられたアクセス許可を持つ個人のみがアクセスできるようにする方法についても説明します。 最後に、Microsoft Graph コネクタを最適化して、Microsoft 365 用 Copilot で使用します。
 
@@ -21,4 +21,4 @@ Microsoft 365 内でこの外部情報を公開するには、カスタム Micro
 - [Microsoft 365 開発者テナント](https://developer.microsoft.com/microsoft-365/dev-program?ocid=MSlearn)へのアクセス
 - [.NET 8.0](https://dotnet.microsoft.com/download/dotnet/8.0)
 
-開始する準備ができたら、[次の演習に進んでください...](./2-exercise-configure-connection-schema.md)
+構成を開始する準備ができたら、[次の演習に進んでください...](./2-exercise-configure-connection-schema.md)

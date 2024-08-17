@@ -16,7 +16,7 @@ lab:
 
 この演習に従うには、この演習で使用するサンプル コンテンツ ファイルを [GitHub](https://pnp.github.io/download-partial/?url=https://github.com/pnp/graph-connectors-samples/tree/main/samples/dotnet-csharp-graphdocs/content) からコピーし、プロジェクトの **content** という名前のフォルダーに保存します。
 
-:::image type="content" source="../media/6-content-files.png" alt-text="この演習で使用されるコンテンツ ファイルを示すコード エディタのスクリーンショット。":::
+![この演習で使用されるコンテンツ ファイルを示すコード エディタのスクリーンショット。](../media/6-content-files.png)
 
 コードが正しく機能するためには、**content** フォルダーとその内容をビルド出力フォルダーにコピーする必要があります。
 

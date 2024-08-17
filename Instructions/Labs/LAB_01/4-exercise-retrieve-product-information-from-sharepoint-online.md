@@ -8,7 +8,7 @@ lab:
 
 この演習では、製品情報を項目としてリストに格納する SharePoint Online サイトをプロビジョニングして構成します。 Microsoft Graph SDK を使用して SharePoint Online からリスト項目を取得し、検索結果にリスト項目データを返すように、メッセージ拡張機能コードを更新します。 最後に、メッセージ拡張機能を実行してデバッグし、Microsoft Teams でテストします。
 
-:::image type="content" source="../media/4-search-results-sharepoint-online.png" alt-text="Microsoft Teams の検索ベースのメッセージ拡張機能によって返される検索結果のスクリーンショット。検索結果は SharePoint Online から返されます。各検索結果には、製品名、カテゴリ、製品イメージが表示されます。" lightbox="../media/4-search-results-sharepoint-online.png":::
+![Microsoft Teams の検索ベースのメッセージ拡張機能によって返される検索結果のスクリーンショット。 検索結果は SharePoint Online から返されます。 各検索結果には、製品名、カテゴリ、製品イメージが表示されます。](../media/4-search-results-sharepoint-online.png)
 
 ## タスク 1 - 製品マーケティング SharePoint サイトをプロビジョニングして構成する
 
@@ -26,7 +26,7 @@ Web ブラウザーで以下を行います。
 
 サイトのプロビジョニングが完了したときに、それを通知する電子メールがメール アドレスに送信されます。 このプロセスが完了するまでに数分かかることがあります。
 
-:::image type="content" source="../media/1-sharepoint-online-product-support-site.png" alt-text="製品サポート SharePoint Online チーム サイトのホームページのスクリーンショット。最近リリースされた製品の一覧が表示されます。" lightbox="../media/1-sharepoint-online-product-support-site.png":::
+![製品サポート SharePoint Online チーム サイトのホームページのスクリーンショット。 最近リリースされた製品の一覧が表示されます。](../media/1-sharepoint-online-product-support-site.png)
 
 Microsoft Graph API を使用してリストに対してクエリを実行するときに、[タイトル] 列と [小売カテゴリ] 列でフィルター処理を有効にするには、リストにインデックスを作成します。
 
