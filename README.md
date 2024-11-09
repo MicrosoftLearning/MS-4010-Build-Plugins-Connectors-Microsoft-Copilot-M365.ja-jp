@@ -1,4 +1,4 @@
-# INF99X: サンプル コース
+# MS-4010: Microsoft Copilot for Microsoft 365 用のプラグインとコネクタを作成する
 
 **あなたは MCT ですか?** - [MCT 向けの GitHub ユーザー ガイド](https://microsoftlearning.github.io/MCT-User-Guide/)をご覧ください
 
