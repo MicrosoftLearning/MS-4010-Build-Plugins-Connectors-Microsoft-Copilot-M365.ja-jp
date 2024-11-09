@@ -1,311 +1,162 @@
 ---
 lab:
   title: 演習 1 - ページ拡張機能を作成する
-  module: 'LAB 03: Connect Copilot for Microsoft 365 to your external data in real-time with message extension plugins built with .NET and Visual Studio'
+  module: 'LAB 01: Connect Copilot for Microsoft 365 to your external data in real-time with message extension plugins built with .NET and Visual Studio'
 ---
 
 # 演習 1 - ページ拡張機能を作成する
 
-この演習では、検索コマンドを使用してメッセージ拡張機能を作成します。 まず、Teams Toolkit プロジェクト テンプレートを使用してプロジェクトをスキャフォールディングし、それを更新して、ローカル開発に Azure AI Bot Service リソースを使用するように構成します。 ボット サービスとローカルで実行されている Web サービスの間の通信を有効にする開発トンネルを作成します。 次に、必要なリソースをプロビジョニングするようにアプリを準備します。 最後に、メッセージ拡張機能を実行してデバッグし、Microsoft Teams でテストします。
+この演習では、メッセージ拡張ソリューションを作成します。 Visual Studio で Teams Toolkit を使用して必要なリソースを作成し、デバッグ セッションを開始し、Microsoft Teams でテストします。
 
-![Microsoft Teams の検索ベースのメッセージ拡張機能によって返される検索結果のスクリーンショット。](../media/2-search-results-nuget.png)
+![Microsoft Teams の検索ベースのメッセージ拡張機能によって返される検索結果のスクリーンショット。](../media/1-search-results.png)
+
+### 演習の期間
+
+  - **推定所要時間**: 25 分
 
 ## タスク 1 - Teams Toolkit for Visual Studio を使用して新しいプロジェクトを作成する
 
-まず、新しいプロジェクトを作成します。
+まず、検索コマンドを含むメッセージ拡張機能で構成された新しい Microsoft Teams アプリ プロジェクトを作成します。 Teams Toolkit for Visual Studio プロジェクト テンプレートを使用してプロジェクトを作成することもできますが、このモジュールを完了するには、スキャフォールディングされたプロジェクトに変更を加える必要があります。 代わりに、NuGet パッケージとして使用できるカスタム プロジェクト テンプレートを使用します。 カスタム テンプレートを使用する利点は、必要なファイルと依存関係を使用してソリューションを作成し、時間を節約することです。
 
-1. **Visual Studio 2022** を開きます
-1. **[ファイル]** メニューを開き、**[新規]** メニューを展開して、 **[新規プロジェクト]** を選択します。
-1. [新しいプロジェクトの作成] 画面で、**[すべてのプラットフォーム]** ドロップダウンを展開し、**Microsoft Teams**を選択します。 **次へ**を選んで続行します。
-1. [新しいプロジェクトの構成] を示すスクリーンショット。 次の値を指定します。
-    1. **プロジェクト名**: MsgExtProductSupport
-    1. **場所**: 既定の場所を選択します
-1. **[作成]** を選択してプロジェクトをスキャフォールディングする
-1. [新しい Teams アプリケーションの作成] ダイアログで、**[All app types (すべてのアプリの種類)]** ドロップダウンを展開し、**Message 拡張機能**を選択します。
-1. テンプレートの一覧で **[カスタム検索結果]** を選択します。
-1. **[作成]** を選択してアプリをスキャフォールディングする
+1. 管理者として新しい PowerShell セッションを開きます。
 
-## タスク 2 - Azure AI Bot Service を構成する
+1. 次を実行して、適切な作業ディレクトリに変更します。
 
-Bot Service リソースは、リソースとして Azure に作成することも、dev.botframework.com 経由で作成することもできます。 デフォルトでは、カスタム検索結果テンプレートは、dev.botframework.com を使用してボットを登録します。 現時点では、ボットを dev.botframework.com に登録することは、Microsoft 365 用 Copilot と互換性がありません。
-
-Copilot for Microsoft 365 をサポートするには、プロジェクトを更新して Azure で Azure AI Bot Service リソースをプロビジョニングし、ローカル開発に使用します。
-
-まず、ファイル全体で再利用してリソースをプロビジョニングするときに使用できるアプリの内部名を一元化する環境変数を作成します。
-
-Visual Studio:
-
-1. **env** フォルダーで、**.env.local** を開きます
-1.  ファイルに、次のコードを追加します。
-
-    ```text
-    APP_INTERNAL_NAME=msgext-product-support
+    ```Powershell
+    cd ~\Documents
     ```
 
-1. 変更を保存します
+1. 次を実行して、NuGet からテンプレート パッケージをインストールすることから始めます。
 
-`${{APP_INTERNAL_NAME}}` などのデータ バインディング式を使用すると、Teams Toolkit を使用してリソースをプロビジョニングするときに環境変数の値をファイルに挿入できます。
-
-Azure AI Bot Service リソースをプロビジョニングするには、Microsoft Entra アプリの登録が必要です。 Teams Toolkit がアプリ登録のプロビジョニングに使用するアプリ登録マニフェスト ファイルを作成します。
-
-Visual Studio での続行:
-
-1. **infra** フォルダーに、**entra** という名前の新しいフォルダーを作成します
-1. フォルダーに、**entra.bot.manifest.json** という名前のファイルを作成します
-1.  ファイルに、次のコードを追加します。
-
-    ```json
-    {
-      "id": "${{BOT_ENTRA_APP_OBJECT_ID}}",
-      "appId": "${{BOT_ID}}",
-      "name": "${{APP_INTERNAL_NAME}}-bot-${{TEAMSFX_ENV}}",
-      "accessTokenAcceptedVersion": 2,
-      "signInAudience": "AzureADMultipleOrgs",
-      "optionalClaims": {
-        "idToken": [],
-        "accessToken": [
-          {
-            "name": "idtyp",
-            "source": null,
-            "essential": false,
-            "additionalProperties": []
-          }
-        ],
-        "saml2Token": []
-      },
-      "requiredResourceAccess": [],
-      "oauth2Permissions": [],
-      "preAuthorizedApplications": [],
-      "identifierUris": [],
-      "replyUrlsWithType": []
-    }
+    ```PowerShell
+    dotnet new install M365Advocacy.Teams.Templates
     ```
 
-1. 変更を保存。
+1. 次を実行して新しいプロジェクトを作成します。
 
-Teams Toolkit では、Bicep ファイルを使用して Azure でリソースをプロビジョニングおよび構成します。 まず、パラメータ ファイルを作成します。 パラメータ ファイルは、環境変数を Bicep テンプレートに渡すために使用されます。
-
-Visual Studio での続行:
-
-1. **infra** フォルダーに、**azure.parameters.local.json** という名前の新しいファイルを作成します
-1.  ファイルに、次のコードを追加します。
-
-    ```json
-    {
-      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-      "contentVersion": "1.0.0.0",
-      "parameters": {
-        "resourceBaseName": {
-          "value": "bot-${{RESOURCE_SUFFIX}}-${{TEAMSFX_ENV}}"
-        },
-        "botEntraAppClientId": {
-          "value": "${{BOT_ID}}"
-        },
-        "botDisplayName": {
-          "value": "${{APP_DISPLAY_NAME}}"
-        },
-        "botAppDomain": {
-          "value": "${{BOT_DOMAIN}}"
-        }
-      }
-    }
+    ```PowerShell
+    dotnet new teams-msgext-search --name "ProductsPlugin" `
+      --internal-name "msgext-products" `
+      --display-name "Contoso products" `
+      --short-description "Product look up tool." `
+      --full-description "Get real-time product information and share them in a conversation." `
+      --command-id "Search" `
+      --command-description "Find products by name" `
+      --command-title "Products" `
+      --parameter-name "ProductName" `
+      --parameter-title "Product name" `
+      --parameter-description "The name of the product as a keyword" `
+      --allow-scripts Yes
     ```
 
-1. 変更を保存。
+1. プロジェクトが作成されるまで待ちます。
 
-次に、パラメータ ファイルで使用される Bicep ファイルを作成します。
+1. `cd ProductsPlugin` を実行して、プロジェクト ディレクトリに変更します。
 
-1. **infra** フォルダーに **azure.local.bicep** という名前の新しいファイルを作成します
-1.  ファイルに、次のコードを追加します。
+1. `.\ProductsPlugin.sln` を実行して、Visual Studio でソリューションを開きます。
 
-    ```bicep
-    @maxLength(20)
-    @minLength(4)
-    @description('Used to generate names for all resources in this file')
-    param resourceBaseName string
-    
-    @description('Required when create Azure Bot service')
-    param botEntraAppClientId string
-    @maxLength(42)
-    param botDisplayName string
-    param botAppDomain string
-    
-    module azureBotRegistration './botRegistration/azurebot.bicep' = {
-      name: 'Azure-Bot-registration'
-      params: {
-        resourceBaseName: resourceBaseName
-        botAadAppClientId: botEntraAppClientId
-        botAppDomain: botAppDomain
-        botDisplayName: botDisplayName
-      }
-    }
-    ```
+1. アプリケーションの選択ウィンドウから **Visual Studio 2022** を選択し、**[Always]** を選択します。
 
-1. 変更を保存。
-
-最後の手順では、Teams Toolkit プロジェクト ファイルを更新します。 Bot Framework アクションを使用する手順を置き換えて、マニフェスト ファイルを使用してボット Microsoft Entra アプリ登録をプロビジョニングし、Bicep ファイルを使用して Azure AI Bot Service リソースをプロビジョニングします。
-
-Visual Studio での続行:
-
-1. プロジェクトのルート フォルダーで、**teamsapp.local.yml** を開きます
-1. ファイルで、**botAadApp/create** アクション (17 から 26 行目) を使用する手順を見つけて、次のように置き換えます。
-
-    ```yml
-      - uses: aadApp/create
-        with:
-          name: ${{APP_INTERNAL_NAME}}-bot-${{TEAMSFX_ENV}}
-          generateClientSecret: true
-          signInAudience: AzureADMultipleOrgs
-        writeToEnvironmentFile:
-          clientId: BOT_ID
-          clientSecret: SECRET_BOT_PASSWORD
-          objectId: BOT_ENTRA_APP_OBJECT_ID
-          tenantId: BOT_ENTRA_APP_TENANT_ID
-          authority: BOT_ENTRA_APP_OAUTH_AUTHORITY
-          authorityHost: BOT_ENTRA_APP_OAUTH_AUTHORITY_HOST
-    
-      - uses: aadApp/update
-        with:
-          manifestPath: "./infra/entra/entra.bot.manifest.json"
-          outputFilePath : "./build/entra.bot.manifest.${{TEAMSFX_ENV}}.json"
-    
-      - uses: arm/deploy
-        with:
-          subscriptionId: ${{AZURE_SUBSCRIPTION_ID}}
-          resourceGroupName: ${{AZURE_RESOURCE_GROUP_NAME}}
-          templates:
-            - path: ./infra/azure.local.bicep
-              parameters: ./infra/azure.parameters.local.json
-              deploymentName: Create-resources-for-${{APP_INTERNAL_NAME}}-${{TEAMSFX_ENV}}
-          bicepCliVersion: v0.9.1
-    ```
-
-1. ファイルで、**botFramework/create** アクション (53 から 62 行目)を使用する手順を削除します。
-1. 変更を保存。
-
-アプリの登録は 2 つの手順でプロビジョニングされます。まず、**aadApp/create** アクションはクライアント シークレットを使用して新しいマルチテナント アプリ登録を作成し、その出力を環境変数として **.env.local** ファイルに書き込みます。 その後、**aadApp/update** アクションは、**entra.bot.manifest.json** ファイルを使用してアプリの登録を更新します。
-
-最後の手順では、**arm/deploy** アクションを使用して、**azure.parameters.local.json** ファイルと **azure.local.bicep** ファイルを使用して Azure AI Bot Service リソースをリソース グループにプロビジョニングします。
-
-## タスク 3 - 開発トンネルを作成する
+## タスク 2: 開発トンネルを作成する
 
 ユーザーがメッセージ拡張機能と対話すると、Bot サービスは Web サービスに要求を送信します。 開発中、Web サービスはマシン上でローカルに実行されます。 Bot Service が Web サービスに到達できるようにするには、開発トンネルを使用してマシン外に公開する必要があります。
 
-![Visual Studio で展開された [開発トンネル] メニューのスクリーンショット。](../media/18-select-dev-tunnel.png)
+![Visual Studio の [Dev tunnels] ウィンドウのスクリーンショット。](../media/14-select-dev-tunnel.png)
 
 Visual Studio での続行:
 
-1. ツール バーで、スタートアップ プロジェクトとして **MsgExtProductSupport** が選択されていることを確認し、**Microsoft Teams (ブラウザー) ボタン**または **[プロジェクトの開始]** の横にあるドロップダウンを選択して、デバッグ プロファイル メニューを展開します。
-1. **[Dev Tunnels (no active tunnel) (開発トンネル (アクティブなトンネルなし))]** メニューを展開し、**[Create a Tunnel... (トンネルの作成...)]** を選択します
+1. ツール バーの **[Start]** ボタンの横にあるドロップダウンを選択し、**[Dev Tunnels (no active tunnel)]** メニューを展開し、**[Create a Tunnel]** を選択します。
+
 1. ダイアログで、次の値を指定します。
-    1. **アカウント**: Microsoft 365 ユーザー アカウントでログインします。
-    1. **名前**: MsgExtProductSupport
+
+    1. **アカウント**: 提供された Microsoft 365 アカウントを使用してサインインします。 **[職場または学校アカウント]** を選択します。
+
+    1. **名前**: msgext-products
+
     1. **トンネルの種類**: 一時的
+
     1. **アクセス**: パブリック
-1. **[OK]** を選択してトンネルを作成します
-1. **[OK]** を選択してプロンプトを閉じます
 
-## タスク 4 - アプリ マニフェストを更新する
+1. **[OK]** を選択してトンネルを作成します。 新しいトンネルが現在アクティブなトンネルであることを示すプロンプトが表示されます。
 
-アプリ マニフェストは、アプリの機能について説明します。 アプリ マニフェストのプロパティを更新して、アプリの機能とその機能をより適切に説明します。
+1. **[OK]** を選択してプロンプトを閉じます。
 
-まず、アプリ アイコンをダウンロードし、プロジェクトに追加します。
+## タスク 3: リソースを準備する
 
-![ローカル開発に使用される色アイコン。](../media/app/color-local.png)
+Teams Toolkit を使用して、すべてが整った状態で、**Teams アプリの依存関係の準備**プロセスを実行して、必要なリソースを作成します。
 
-![リモート開発に使用される色アイコン。](../media/app/color-dev.png)
+![Visual Studio で展開された Teams Toolkit メニューのスクリーンショット。](../media/15-prepare-teams-app-dependencies.png)
 
-1. **color-local.png** と **color-dev.png** をダウンロードします
-1. **appPackage** フォルダーに、**color-local.png** と **color-dev.png** を追加します
-1. フォルダーで、**color.png** という名前のファイルを削除します
+Teams アプリの依存関係の準備プロセスでは、アクティブな開発トンネル URL を使用して **TeamsApp\\env\\.env.local** ファイル内の **BOT_ENDPOINT** と **BOT_DOMAIN** 環境変数を更新し、**TeamsApp\\teamsapp.local.yml** ファイルで説明されているアクションを実行します。
 
-アプリ名はプロジェクト内のさまざまな場所にレプリケートされるため、この値を一元的に格納する新しい環境変数を作成します。
+少し時間を取って、**teamsapp.local.yml** ファイルの手順を調べてみましょう。
 
 Visual Studio での続行:
 
-1. **env** フォルダーで、**.env.local** という名前のファイルを開きます
-1.  ファイルに、次のコードを追加します。
+1. **[Project]** メニューを開き (または、Solution Explorer で **TeamsApp** プロジェクトを右クリックすることもできます)、**[Teams Toolkit]** メニューを展開して、**[Prepare Teams App Dependencies]** を選択します。
 
-    ```text
-    APP_DISPLAY_NAME=Contoso products
-    ```
+1. **[Microsoft 365 account]** ダイアログで、サインインするか、既存のアカウントを選択して Microsoft 365 テナントにアクセスして、**[Continue]** を選択します。
 
-1. 変更を保存します
+1. **[Provision]** ダイアログで、サインインするか、Azure へのリソースのデプロイに使用する既存のアカウントを選択して、次の値を指定します。
 
-最後に、アプリ マニフェスト ファイル内のアイコン、名前、および説明オブジェクトを更新します。
+      1. **サブスクリプション名**: ドロップダウンを使用して、サブスクリプションを選択します。
 
-1. **appPackage** フォルダーで、**manifest.json** という名前のファイルを開きます。
-1. ファイルで、**icons**、**name**、および **description** オブジェクトを次のように置き換えます (13 から 24 行目)。
+      1. **リソース グループ**: ドロップダウン リストから、あらかじめ用意されたリソース グループを選択します。
 
-    ```json
-        "icons": {
-            "color": "color-${{TEAMSFX_ENV}}.png",
-            "outline": "outline.png"
-        },
-        "name": {
-            "short": "${{APP_DISPLAY_NAME}}",
-            "full": "${{APP_DISPLAY_NAME}}"
-        },
-        "description": {
-            "short": "Product look up tool.",
-            "full": "Get real-time product information and share them in a conversation."
-        },
-    ```
+1. **[Provision]** を選択して、Azure でリソースを作成します。
 
-1. 変更を保存します
+1. Teams Toolkit 警告プロンプトで、**[Provision]** を選択します。
 
-## タスク 6 - リソースをプロビジョニングする
-
-Teams ツールキットを使用して、すべてが整った状態で、Teams アプリの依存関係の準備プロセスを実行して、必要なリソースをプロビジョニングします。
-
-![Visual Studio で展開された Teams Toolkit メニューのスクリーンショット。](../media/19-prepare-teams-app-dependencies.png)
-
-Teams アプリの依存関係の準備プロセスでは、アクティブな開発トンネル URL を使用して .env.local ファイル内の **BOT_ENDPOINT** と **BOT_DOMAIN** 環境変数を更新し、 **teamsapp.local.yml** ファイルで説明されているアクションを実行します。
-
-Visual Studio での続行:
-
-1. ソリューション エクスプローラーで、ソリューション エクスプローラーの **TeamsApp** を右クリックします。
-1. **Teams Toolkit** メニューを展開し、**[Prepare Teams App Dependencies (Teams アプリの依存関係を準備)]** を選択します
-1. **Microsoft 365 アカウント**ダイアログで、開発者テナントのアカウントを選択し、**[続行] ** を選択します。
-1. **[プロビジョニング]** ダイアログで、Azure へのリソースのデプロイに使用するアカウントを選択し、次の値を指定します。
-    1. **サブスクリプション名**: 使用するサブスクリプションをドロップダウンから選択します
-    1. **リソース グループ**: ドロップダウンを展開し、ユーザー アカウント用に事前に作成されたリソース グループを選択します。
-    1. **リージョン**: ドロップダウンで、最も近いリージョンを選択します
-1. **[プロビジョニング]** を選択して Azure でリソースをプロビジョニングします
-1. Teams Toolkit の警告プロンプトで、**[プロビジョニング]** を選択します
 1. Teams Toolkit 情報プロンプトで、**[View provisioned resources (プロビジョニングされたリソースの表示)]** を選択して、新しいブラウザー ウィンドウを開きます。
 
-少し時間を取って、Azure で作成されたリソースを調べてみましょう。
+少し時間を取って、Azure で作成されたリソースを調べ、**.env.local** ファイルで作成された環境変数も表示します。
 
-## タスク 7 - 実行とデバッグ  
+> [!NOTE]
+> Visual Studio を閉じて再度開くと、開発トンネルの URL が変更され、アクティブなトンネルとして選択されなくなります。 この場合は、トンネルをもう一度選択し、**Teams アプリの依存関係の準備**プロセスを実行して、更新された URL をアプリ マニフェストに反映する必要があります。
 
-次に、Web サービスを開始し、メッセージ拡張機能をテストします。 Teams Toolkit を使用してアプリ マニフェストをアップロードし、Microsoft Teamsでメッセージ拡張機能をテストします。
+## タスク 4 - 実行とデバッグ
 
-Visual Studio での続行:
+Teams Toolkit では、複数プロジェクト起動プロファイルが使用されます。 プロジェクトを実行するには、Visual Studio でプレビュー機能を有効にする必要があります。
 
-1. F5 キーを押してデバッグ セッションを開始し、新しいブラウザー ウィンドウを開くと Microsoft Teams Web クライアントに移動されます。
-1. 異なる SSL 証明書を信頼するように求められたら、**[はい]** を選択し、セキュリティ警告に再度 **[はい]** を選択します。 証明書を受け入れた後、デバッガーを再起動する必要がある場合があります。
-1. メッセージが表示されたら、Microsoft 365 アカウント資格情報を入力します。
+Visual Studio:
 
-  > [!IMPORTANT]
-  > Microsoft Teams に「This app cannot be found (このアプリが見つかりません)」というメッセージが含まれるダイアログ ボックスが表示された場合は、次の手順に従ってアプリ パッケージを手動でアップロードします
-  >
-  >  1. ダイアログを閉じます
-  >  2. サイド バーで **[アプリ]** に移動します
-  >  3. 左側のメニューで、** [Manage your apps (アプリの管理)]** を選択します
-  >  4. コマンド バーで、**[ファイルのアップロード]** を選択します。
-  >  5. ダイアログ ボックスで、**[Upload a customized app (カスタマイズしたアプリをアップロードする)]** を選択します
-  >  6. エクスプローラーでソリューション フォルダーに移動し、**appPackage\build** フォルダーを開き、**appPackage.local.zip** を選択してから、**追加**します
+1. **[Tools]** メニューを開き、**[Options...]** を選択します。
 
-続行してアプリをインストールします。
+1. 検索ボックスに、「**multi-project**」と入力します。
 
-1. アプリのインストール ダイアログで、**[追加]** を選びます。
-1. 新規または既存の Microsoft Teams チャットを開きます
-1. メッセージ作成領域で、「**/apps**」と入力を開始してポップアップを開きます。
-1. アプリの一覧で **C[ontoso 製品]** を選択してメッセージ拡張機能を開きます
-1. テキスト ボックスに「 **Bot Builder** 」と入力して検索を開始します。
-1. 結果の一覧で、作成メッセージ ボックスにカードを埋め込む結果を選択します
+1. **[Environment]** で、**[Preview Features]** を選択します。
 
-ブラウザーを閉じてデバッグ セッションを終了します。
+1. **[Enable Multi-Project Launch Profiles]** の横にあるチェック ボックスをオンにし、**[OK]** を選択して変更を保存します。
+
+デバッグ セッションを開始し、Microsoft Teams にアプリをインストールするには:
+
+1. <kbd>F5</kbd> キーを押すか、ツール バーから **[Start]** を選択します。
+
+1. アプリを初めて起動するときにポップアップ表示される SSL 証明書の警告を信頼または承認します。
+
+1. ブラウザー ウィンドウが開き、Microsoft Teams Web クライアントにアプリのインストール ダイアログが表示されるまで待ちます。 メッセージが表示されたら、Microsoft 365 アカウント資格情報を入力します。
+
+1. [アプリのインストール] ダイアログで、**[追加]** を選択します。
+
+メッセージ拡張機能をテストするには:
+
+1. 新しいチャットを開き (<kbd>Alt + N</kbd>)、**[宛先]** ボックスに「**Contoso**」と入力し、**Contoso 製品サポート**を選択します。
+
+    > [!NOTE]
+    > 自分のユーザー アカウントとチャットする場合は機能しません。 別のユーザーまたはグループである必要があります。
+
+1. メッセージ作成領域で、「**/apps**」と入力してアプリ ピッカーを開きます。
+
+1. アプリの一覧で、**[Contoso 製品]** を選択してメッセージ拡張機能を開きます。
+
+1. テキスト ボックスに、「** hello**」と入力します。 検索を複数回入力する必要がある場合があります。
+
+1. 検索結果が表示されるまで待ちます。
+
+1. 結果の一覧で、**hello** を選択して作成メッセージ ボックスにカードを埋め込みます。
+
+![Microsoft Teams の検索ベースのメッセージ拡張機能によって返される検索結果のスクリーンショット。](../media/1-search-results.png)
+
+Visual Studio に戻り、ツール バーから **[Stop]** を選択するか、<kbd>Shift</kbd> + <kbd>F5</kbd> キーを押してデバッグ セッションを停止します。
 
 [次の演習に進んでください...](./3-exercise-add-single-sign-on.md)
