@@ -1,7 +1,7 @@
 ---
 lab:
   title: 開発環境を準備する
-  module: 'LAB 02: Build your own message extension plugin with TypeScript (TS) for Microsoft Copilot'
+  module: 'LAB 02: Build your own message extension plugin with TypeScript (TS) for Microsoft 365 Copilot'
 ---
 
 # 開発環境を準備する
@@ -11,7 +11,7 @@ lab:
 ## タスク 1: 前提条件をインストールする
 
 > [!IMPORTANT]
-> このプロジェクトを正常に完了するには、アプリケーションをアップロードするアクセス許可を持つ Microsoft 365 アカウントが必要です。 **演習 2**を完了するには、Microsoft Copilot for Microsoft 365 のアカウントのライセンスも持っている必要があります。
+> このプロジェクトを正常に完了するには、アプリケーションをアップロードするアクセス許可を持つ Microsoft 365 アカウントが必要です。 **演習 2** を完了するには、アカウントに Microsoft 365 Copilot のライセンスも必要です。
 
 新しいテナントを使用している場合は、開始する前に、[https://office.com](https://office.com) の [Microsoft 365 ページ](https://office.com)にログインすることをお勧めします。 テナントの構成方法によっては、多要素認証の設定を求められる場合があります。 続行する前に、Microsoft Teamsと Microsoft Outlook にアクセスできることを確認します。
 

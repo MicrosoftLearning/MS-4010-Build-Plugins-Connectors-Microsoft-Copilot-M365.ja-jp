@@ -1,14 +1,14 @@
 ---
 lab:
-  title: 演習 4 - Microsoft 365 用 Copilot で使用するメッセージ拡張機能を拡張して最適化する
-  module: 'LAB 01: Connect Copilot for Microsoft 365 to your external data in real-time with message extension plugins built with .NET and Visual Studio'
+  title: 演習 4 - Microsoft 365 Copilot で使用するメッセージ拡張機能を拡張して最適化する
+  module: 'LAB 01: Connect Microsoft 365 Copilot to your external data in real-time with message extension plugins built with .NET and Visual Studio'
 ---
 
-# 演習 4 - Microsoft 365 用 Copilot で使用するメッセージ拡張機能を拡張して最適化する
+# 演習 4 - Microsoft 365 Copilot で使用するメッセージ拡張機能を拡張して最適化する
 
-この演習では、Microsoft 365 用 Copilot で使用するために、メッセージ拡張機能を拡張して最適化します。 対象ユーザーという名前の新しいパラメーターを追加し、複数のパラメーターを処理するようにメッセージ拡張ロジックを更新します。 最後に、メッセージ拡張機能を実行してデバッグし、Microsoft Teams 用 Copilot でテストします。
+この演習では、 Microsoft 365 Copilot で使用するために、メッセージ拡張機能を拡張して最適化します。 対象ユーザーという名前の新しいパラメーターを追加し、複数のパラメーターを処理するようにメッセージ拡張ロジックを更新します。 最後に、メッセージ拡張機能を実行してデバッグし、Microsoft Teams 用 Copilot でテストします。
 
-![メッセージ拡張機能プラグインによって返される情報を含む Copilot for Microsoft 365 の回答のスクリーンショット。 製品情報を示すアダプティブ カードが表示されます。](../media/5-copilot-answer.png)
+![メッセージ拡張機能プラグインによって返された情報を含む Microsoft 365 Copilot の回答のスクリーンショット。 製品情報を示すアダプティブ カードが表示されます。](../media/5-copilot-answer.png)
 
 > [!NOTE]
 > この演習で Microsoft 365 Copilot ライセンスを必要とする唯一のタスクは、タスク 5 です。 テナントに Copilot があるかどうかに関係なく、前のタスクを実行する必要があります。
@@ -212,21 +212,21 @@ Visual Studio での続行:
 
 1. プラグインの一覧で、**Contoso 製品**プラグインを切り替えて有効にします。
 
-    ![Contoso 製品プラグインが有効になっている Microsoft Teams の Copilot for Microsoft 365 のスクリーンショット。](../media/20-copilot-plugin-enabled.png)
+    ![Contoso 製品プラグインが有効になっている Microsoft Teams の Microsoft 365 Copilot のスクリーンショット。](../media/20-copilot-plugin-enabled.png)
 
 1. メッセージとして「**個人向けの Contoso 製品を探す**」と入力し、送信します。
 
 1. Copilot が応答するまで待ちます。
 
-    ![ユーザーの要求の処理中に表示されるコパイロット メッセージを示す、Microsoft Teams の Copilot for Microsoft 365 のスクリーンショット。](../media/21-copilot-thinking.png)
+    ![ユーザーの要求の処理中に表示される Copilot メッセージを示す、Microsoft Teams の Microsoft 365 Copilot のスクリーンショット。](../media/21-copilot-thinking.png)
 
 1. Copilot の応答では、プラグイン応答で返されたデータが表示され、応答でプラグインが参照されます。
 
-    ![メッセージ拡張機能プラグインによって返される情報を含む Copilot for Microsoft 365 の回答のスクリーンショット。 製品情報を示すアダプティブ カードが表示されます。](../media/5-copilot-answer.png)
+    ![メッセージ拡張機能プラグインによって返された情報を含む Microsoft 365 Copilot の回答のスクリーンショット。 製品情報を示すアダプティブ カードが表示されます。](../media/5-copilot-answer.png)
 
 1. 結果に関連するアダプティブ カードを表示するには、Copilot 応答の参照をポイントします。
 
-    ![製品情報が表示されたアダプティブ カードを示す、Microsoft Teams の Copilot for Microsoft 365 のスクリーンショット。 このカードは、ユーザーが Copilot 応答の参照の上にマウス ポインターを置くと表示されます。](../media/22-copilot-reference.png)
+    ![製品情報が表示されたアダプティブ カードを示す、Microsoft Teams の Microsoft 365 Copilot のスクリーンショット。 このカードは、ユーザーが Copilot 応答の参照の上にマウス ポインターを置くと表示されます。](../media/22-copilot-reference.png)
 
 Visual Studio に戻り、ツール バーから **[Stop]** を選択するか、<kbd>Shift</kbd>  +  <kbd>F5</kbd> キーを押してデバッグ セッションを停止します。 また、<kbd>Ctrl</kbd>  +  <kbd>C</kbd> を使用して Dev Proxy をシャットダウンします。
 

@@ -1,7 +1,7 @@
 ---
 lab:
   title: '演習 3: Microsoft Entra で保護された API から製品データを返す'
-  module: 'LAB 01: Connect Copilot for Microsoft 365 to your external data in real-time with message extension plugins built with .NET and Visual Studio'
+  module: 'LAB 01: Connect Microsoft 365 Copilot to your external data in real-time with message extension plugins built with .NET and Visual Studio'
 ---
 
 # 演習 3: Microsoft Entra で保護された API から製品データを返す
@@ -66,7 +66,7 @@ Visual Studio と **ProductsPlugin** プロジェクトで、次の手順を実�
    var text = query?.Parameters?[0]?.Value as string ?? string.Empty;
    ```
 
-   with
+   以下と置き換えます：
 
    ```csharp
    var text = MessageExtensionHelpers.GetQueryParameterValueByName(query.Parameters, "ProductName");
@@ -309,7 +309,7 @@ Visual Studio と **ProductsPlugin** プロジェクトで続行します。
    var card = await File.ReadAllTextAsync(Path.Combine(".", "Resources", "card.json"), cancellationToken);
    ```
 
-   with
+   以下と置き換えます：
 
    ```csharp
    var card = await File.ReadAllTextAsync(Path.Combine(".", "Resources", "Product.json"), cancellationToken);

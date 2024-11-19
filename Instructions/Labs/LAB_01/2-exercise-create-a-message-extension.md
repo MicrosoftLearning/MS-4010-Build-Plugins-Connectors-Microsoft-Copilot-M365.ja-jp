@@ -1,7 +1,7 @@
 ---
 lab:
   title: 演習 1 - ページ拡張機能を作成する
-  module: 'LAB 01: Connect Copilot for Microsoft 365 to your external data in real-time with message extension plugins built with .NET and Visual Studio'
+  module: 'LAB 01: Connect Microsoft 365 Copilot to your external data in real-time with message extension plugins built with .NET and Visual Studio'
 ---
 
 # 演習 1 - ページ拡張機能を作成する
