@@ -1,17 +1,17 @@
 ---
 lab:
   title: 演習 2 - Copilot プラグインとしてサンプルを実行する
-  module: 'LAB 02: Build your own message extension plugin with TypeScript (TS) for Microsoft Copilot'
+  module: 'LAB 02: Build your own message extension plugin with TypeScript (TS) for Microsoft 365 Copilot'
 ---
 
 # 演習 2 - Copilot プラグインとしてサンプルを実行する
 
-この演習では、Microsoft Copilot for Microsoft 365 のプラグインとしてアプリケーションを実行します。 さまざまなプロンプトを試し、さまざまなパラメータを使用してプラグインがどのように呼び出されるかを確認します。
+この演習では、Microsoft 365 Copilot のプラグインとしてアプリケーションを実行します。 さまざまなプロンプトを試し、さまざまなパラメータを使用してプラグインがどのように呼び出されるかを確認します。
 
 > [!NOTE]  
-> 次の演習を実行するには、お使いのアカウントに、Copilot for Microsoft 365 の有効なライセンスが必要です。
+> 次の演習を実行するには、お使いのアカウントに、Microsoft 365 Copilot の有効なライセンスが必要です。
 
-## タスク 1 - Microsoft Copilot for Microsoft 365 でテストする (単一パラメータ)
+## タスク 1 - Microsoft 365 Copilot でテストする (単一パラメーター)
 
 1. 左側のアプリケーション レールで、**Copilot** アプリを選択します。
 
@@ -45,7 +45,7 @@ Northwind データの引用は 3 つの形式で表示される場合があり�
 
 自由に自分のプロンプトを作成してみてください。 Copilot が必要な情報をプラグインにクエリできる場合にのみ機能することがわかります。 これにより、ユーザーが発行するプロンプトの種類を予測し、それぞれに対応する種類のクエリを提供する必要性が強調されます。 複数のパラメータがあると、より強力になります。
 
-## タスク 2 - Microsoft Copilot for Microsoft 365 でテストする (複数のパラメータ)
+## タスク 2 - Microsoft 365 Copilot でテストする (複数パラメーター)
 
 この演習では、サンプル プラグインで複数パラメータ機能を実行するプロンプトをいくつか試します。 これらのプロンプトは、**アプリ マニフェスト**で定義されているように、**名前**、**カテゴリ**、**在庫状況**、**サプライヤーの市区町村**、**在庫レベル**で取得できるデータを要求します。
 
@@ -111,7 +111,7 @@ Northwind データの引用は 3 つの形式で表示される場合があり�
 
 ## 作業を確認
 
-この演習のタスクを完了すると、Copilot for Microsoft 365 で **Northwind Inventory** プラグインを使用できるようになります。 
+この演習のタスクを完了すると、Microsoft 365 Copilot で **Northwind Inventory** プラグインを使用できるようになっているはずです。 
 
 この演習が完了したら、新しいコマンドをメッセージング拡張機能に追加して、プラグインの機能を拡張し、さらに多くのタスクを実行できます。 
 

@@ -1,12 +1,12 @@
 ---
 lab:
   title: 概要
-  module: 'LAB 02: Build your own message extension plugin with TypeScript (TS) for Microsoft Copilot'
+  module: 'LAB 02: Build your own message extension plugin with TypeScript (TS) for Microsoft 365 Copilot'
 ---
 
 # まとめ
 
-このモジュールでは、Microsoft Copilot 用のメッセージ拡張機能プラグインを開発するための開発環境を準備しました。 これには、必要なアクセス許可とライセンスを持つ Microsoft 365 アカウントの設定、Visual Studio Code、NodeJS、Azure Storage Explorer、および Teams Toolkit for Visual Studio Code のインストールが含まれます。 また、GitHub からサンプル リポジトリを複製またはダウンロードし、サンプル ドキュメントを OneDrive にコピーする方法についても学習しました。
+このモジュールでは、Microsoft 365 Copilot 用のメッセージ拡張機能プラグインを開発するための開発環境を準備しました。 これには、必要なアクセス許可とライセンスを持つ Microsoft 365 アカウントの設定、Visual Studio Code、NodeJS、Azure Storage Explorer、および Teams Toolkit for Visual Studio Code のインストールが含まれます。 また、GitHub からサンプル リポジトリを複製またはダウンロードし、サンプル ドキュメントを OneDrive にコピーする方法についても学習しました。
 
 演習では、Azure Table Storage に格納されている Northwind データベースを使用して、Teams と Outlook のプラグインとしてアプリケーションを実行しました。 接続文字列を使用してアプリケーションをビルドし、Visual Studio Code を使用してローカルで実行し、Teams と Outlook でテストしました。 さらに、Northwind の顧客に関連する情報を提供する新しいコマンドを追加することで、Teams メッセージ拡張機能と Copilot プラグインを強化しました。
 
@@ -14,7 +14,7 @@ lab:
 
 ## リソース
 
-- [Microsoft Copilot for Microsoft 365 の拡張](https://learn.microsoft.com/microsoft-365-copilot/extensibility/)
+- [Microsoft 365 Copilot ](https://learn.microsoft.com/microsoft-365-copilot/extensibility/)の拡張
 
 - [Microsoft 365 開発](https://learn.microsoft.com/learn/modules/m365-setup-dev-environment/)
 

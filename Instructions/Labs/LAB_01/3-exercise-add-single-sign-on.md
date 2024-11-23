@@ -1,7 +1,7 @@
 ---
 lab:
   title: 演習 2 - シングル サインオンを追加する
-  module: 'LAB 01: Connect Copilot for Microsoft 365 to your external data in real-time with message extension plugins built with .NET and Visual Studio'
+  module: 'LAB 01: Connect Microsoft 365 Copilot to your external data in real-time with message extension plugins built with .NET and Visual Studio'
 ---
 
 # 演習 2 - シングル サインオンを追加する
@@ -244,7 +244,7 @@ Visual Studio と **TeamsApp** プロジェクトで続行します。
 
 1. **Search** フォルダーで、**SearchApp.cs** を開きます。
 
-1. **SearchApp** クラスの先頭に、**IConfiguration** オブジェクトを受け取り、**CONNECTION_NAME** プロパティの値を **connectionName** という名前のプライベート フィールドに割り当てるコンストラクターを作成します。
+1. **SearchApp** クラスの先頭 (14 行目の辺り) に、**IConfiguration** オブジェクトを受け取り、**CONNECTION_NAME** プロパティの値を **connectionName** という名前のプライベート フィールドに割り当てるコンストラクターを作成します。
 
     ```csharp
     private readonly string connectionName;

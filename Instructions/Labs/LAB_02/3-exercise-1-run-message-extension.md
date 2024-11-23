@@ -1,7 +1,7 @@
 ---
 lab:
   title: 演習 1 - メッセージ拡張機能としてサンプルを実行する
-  module: 'LAB 02: Build your own message extension plugin with TypeScript (TS) for Microsoft Copilot'
+  module: 'LAB 02: Build your own message extension plugin with TypeScript (TS) for Microsoft 365 Copilot'
 ---
 
 # 演習 1 - メッセージ拡張機能としてサンプルを実行する
@@ -234,6 +234,6 @@ Northwind データベースはファンシーではありませんが、実際�
 
 この演習のすべてのタスクを実行した後は、Teams または Outlook 用の Microsoft 365 プラグインとして使用できる動作中のメッセージ拡張機能アプリケーションが必要です。
 
-すべてが動作している場合、**Microsoft Copilot for Microsoft 365** でサンプル アプリケーションを実行する準備ができています。 
+すべてが動作している場合、**Microsoft 365 Copilot** でサンプル アプリケーションを実行する準備ができています。 
 
 [次の演習に進んでください...](./4-exercise-2-run-copilot-plugin.md)

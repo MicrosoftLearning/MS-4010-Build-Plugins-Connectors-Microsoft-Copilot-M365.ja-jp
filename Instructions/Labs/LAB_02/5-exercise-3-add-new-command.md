@@ -1,12 +1,12 @@
 ---
 lab:
   title: 演習 3 - 新しいコマンドを追加する
-  module: 'LAB 02: Build your own message extension plugin with TypeScript (TS) for Microsoft Copilot'
+  module: 'LAB 02: Build your own message extension plugin with TypeScript (TS) for Microsoft 365 Copilot'
 ---
 
 # 演習 3 - 新しいコマンドを追加する
 
-この演習では、新しいコマンドを追加して、Teams メッセージ拡張機能と Copilot プラグインを強化します。 現在のメッセージ拡張機能は、Northwind Inventory データベース内の製品に関する情報を効果的に提供しますが、Northwind の顧客に関連する情報は提供しません。 ユーザーが指定した顧客名で並べ替えられた製品を取得する API 呼び出しに関連付けられた新しいコマンドを導入します。 この演習では、少なくとも演習 1、2、3 が完了していることを前提としています。 Microsoft 365 用の Copilot ライセンスがない場合は、演習 4 をスキップしても問題ありません。
+この演習では、新しいコマンドを追加して、Teams メッセージ拡張機能と Copilot プラグインを強化します。 現在のメッセージ拡張機能は、Northwind Inventory データベース内の製品に関する情報を効果的に提供しますが、Northwind の顧客に関連する情報は提供しません。 ユーザーが指定した顧客名で並べ替えられた製品を取得する API 呼び出しに関連付けられた新しいコマンドを導入します。 この演習では、少なくとも演習 1、2、3 が完了していることを前提としています。 Microsoft 365 Copilot ライセンスがない場合は、演習 4 をスキップしても構いません。
 
 これを行うには、次のタスクを実行します。
 
@@ -232,7 +232,7 @@ lab:
 
 ## タスク 5 - アプリを実行する 会社名で製品を検索します
 
-これで、Microsoft 365 用 Copilot のプラグインとしてサンプルをテストする準備ができました。
+これで、Microsoft 365 Copilot のプラグインとしてサンプルをテストする準備ができました。
 
 1. Teams で **Northwest Inventory** アプリを削除します。 このタスクはマニフェストを更新するために必要です。 マニフェストの更新では、アプリを再インストールする必要があります。 これを行う最もクリーンな方法は、最初に Teams から削除することです。
 
