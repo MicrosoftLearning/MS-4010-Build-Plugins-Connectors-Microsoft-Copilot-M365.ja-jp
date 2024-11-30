@@ -66,7 +66,7 @@ Visual Studio と **ProductsPlugin** プロジェクトで、次の手順を実�
    var text = query?.Parameters?[0]?.Value as string ?? string.Empty;
    ```
 
-   以下と置き換えます：
+   with
 
    ```csharp
    var text = MessageExtensionHelpers.GetQueryParameterValueByName(query.Parameters, "ProductName");
@@ -309,7 +309,7 @@ Visual Studio と **ProductsPlugin** プロジェクトで続行します。
    var card = await File.ReadAllTextAsync(Path.Combine(".", "Resources", "card.json"), cancellationToken);
    ```
 
-   以下と置き換えます：
+   with
 
    ```csharp
    var card = await File.ReadAllTextAsync(Path.Combine(".", "Resources", "Product.json"), cancellationToken);
