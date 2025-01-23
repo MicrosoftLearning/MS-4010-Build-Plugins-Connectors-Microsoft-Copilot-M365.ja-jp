@@ -1,29 +1,34 @@
 ---
 lab:
   title: 導入
-  module: 'LAB 02: Build your own message extension plugin with TypeScript (TS) for Microsoft 365 Copilot'
+  module: 'LAB 02: Build your first action for declarative agents with API plugin by using Visual Studio Code'
 ---
 
 # はじめに
 
-このプロジェクトでは、Microsoft 365 Copilot のプラグインとして Teams メッセージ拡張機能を使用する方法について説明します。 このプロジェクトは、この同じ [GitHub リポジトリ](https://github.com/OfficeDev/Copilot-for-M365-Plugins-Samples/tree/main/samples/msgext-northwind-inventory-ts)に含まれる「Northwind Inventory」サンプルに基づいています。 古い [Northwind データベース](https://learn.microsoft.com/dotnet/framework/data/adonet/sql/linq/downloading-sample-databases)を使用すると、シミュレートされたエンタープライズ データを多数使用できます。
+Microsoft 365 Copilot エージェントを使用すると、特定のシナリオに最適化された AI を利用したアシスタントを作成できます。 手順を使用して、エージェントのコンテキストを定義し、話し方や応答方法などの設定を指定します。 エージェントのスキルを構成することで、外部システムと対話したり、システム条件下で特定の動作をトリガーしたり、カスタム ワークフロー ロジックを使用したりできます。 スキルの種類の 1 つは、宣言型エージェントがデータの取得と変更の両方のために API と通信できるようにするアクションです。
 
-Northwind は、ワシントン州スポーカン市から特殊食品の e コマースビジネスを運営しています。 この課題では、製品在庫と財務情報へのアクセスを提供する Northwind Inventory アプリケーションを使用します。
+![Microsoft 365 Copilot 用の宣言型エージェントの構造を示す図。](../media/LAB_02/1-anatomy-declarative-agent.png)
 
-この演習の所要時間は約 **60** 分です。
+## シナリオ例
 
-## 開始する前に
+たとえば、地元のレストランから定期的に食べ物を注文する組織で働いているとします。 レストランは、毎日のメニューをインターネット上で公開しています。 利用可能なコースをすばやく確認できるようにしたいけれども、ゲストがいる場合はアレルギー物質も考慮する必要があります。 レストランは API を介してメニューを公開します。 別のアプリを構築するのではなく、Microsoft 365 Copilot に情報を統合して、注文できる利用可能な料理を簡単に見つけてその食材を確認できるようにしたいと考えています。 メニューの閲覧や注文に自然言語を使用する必要があります。
 
-- まず、開発環境を設定してアプリケーションを実行する[**準備**](./2-prepare-development-environment.md)を行います。
+## 学習内容
 
-- [**演習 1**](./3-exercise-1-run-message-extension.md) では、Microsoft Teamsと Outlook で[メッセージ拡張機能](https://learn.microsoft.com/microsoftteams/platform/messaging-extensions/what-are-messaging-extensions)として同じアプリケーションを実行します。
+このモジュールでは、API プラグインを使用して宣言型エージェントのアクションを作成します。 このアクションにより、エージェントは匿名 API を使用して外部システムと対話できます。 学習内容は、次のとおりです。
 
-- [**演習 2**](./4-exercise-2-run-copilot-plugin.md) では、Microsoft 365 Copilot のプラグインとしてアプリケーションを実行します。 さまざまなプロンプトを試し、さまざまなパラメータを使用してプラグインがどのように呼び出されるかを確認します。 Copilot とチャットしながら、開発者コンソールを見て、作成されているクエリを確認できます。
+- **作成**: 匿名 API に接続する API プラグインを作成します。
+- **構成**: API からのデータを表示するように API プラグインを構成します。
+- **拡張**: API プラグインを使用して、宣言型エージェントをアクションで拡張します。
+- **プロビジョニング**: 宣言型エージェントを Microsoft 365 Copilot にアップロードし、結果を検証します。
 
-- [**演習 3**](./5-exercise-3-add-new-command.md) では、プラグインの機能を拡張し、より多くのタスクを実行できるように、新しいコマンドをアプリケーションに追加する方法について説明します。
+![外部 API からの情報を使用してユーザーに応答する宣言型エージェントのスクリーンショット。](../media/LAB_02/1-agent-response-api-plugin.png)
 
-  ![製品を表示するアダプティブ カードのスクリーンショット。](../media/1-00-product-card-only.png)
+## ラボの期間
 
-- 最後に、[**演習 4 **](./6-exercise-4-explore-plugin-source-code.md)では、コードのツアーに進み、どのように動作するかを詳しく確認します。 Copilot をまだお持ちでない場合でも、それ以外はすべて Microsoft 365 のメッセージ拡張機能として機能します。
+- **推定所要時間**: 35 分
 
-開始する準備ができたら、[次の演習に進んでください...](./2-prepare-development-environment.md)
+## 学習の目的
+
+このモジュールを完了すると、宣言型エージェントを匿名 API に接続された API プラグインと統合して、外部システムとリアルタイムで対話できるようにする方法がわかります。

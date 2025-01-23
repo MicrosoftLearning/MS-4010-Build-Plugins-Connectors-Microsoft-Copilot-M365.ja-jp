@@ -1,59 +1,43 @@
 ---
 lab:
   title: 導入
-  module: 'LAB 01: Connect Microsoft 365 Copilot to your external data in real-time with message extension plugins built with .NET and Visual Studio'
+  module: 'LAB 01: Build a declarative agent for Microsoft 365 Copilot using Visual Studio Code'
 ---
 
 # はじめに
 
-メッセージ拡張機能を使用すると、ユーザーは Microsoft Teams および Microsoft Outlook の外部システムを操作できます。 ユーザーは、メッセージ拡張機能を使用してデータを検索および変更し、これらのシステムのデータをメッセージやメールでリッチ フォーマット カードとして共有できます。
+宣言型エージェントを使用して Microsoft 365 Copilot を拡張します。 カスタム ナレッジを定義して、権限のあるコンテンツを使用して質問に回答できるエージェントを作成します。
 
-組織に関連する最新の製品情報にアクセスするために使用するカスタム API があるとします。 この情報を Microsoft 365 で検索して共有したいと考えています。 また、Microsoft 365 Copilot が回答にこの情報を使用するようにしたいとも考えています。
+## シナリオ例
 
-このモジュールでは、メッセージ拡張機能を作成します。 メッセージ拡張機能では、ボットを使用して、Microsoft Teams、Microsoft Outlook、および Microsoft 365 Copilot と通信します。
+たとえば、カスタマー サポート チームで働いているとします。 あなたとチームは、組織が顧客から作成した製品に関する問い合わせを処理します。 応答時間を改善し、より良いエクスペリエンスを提供する必要があります。 ドキュメントは、製品の仕様、よく寄せられる質問、および修理、返品、保証の取り扱いに関するポリシーを含む SharePoint Online サイトのドキュメント ライブラリに格納します。 自然言語を使用してこれらのドキュメント内の情報を照会し、顧客の問い合わせに対する回答をすばやく取得できるようにする必要があります。
 
-![Microsoft Teams の検索ベースのメッセージ拡張機能によって返される検索結果のスクリーンショット。](../media/1-search-results.png)
+## 学習内容
 
-Microsoft Entra を使用してユーザーを認証し、ユーザーに代わって API を使用してデータを返すことができます。
+ここでは、Microsoft 365 のドキュメントに格納されている情報を使用して、製品サポートの質問に回答できる宣言型エージェントを作成します。
 
-ユーザーが認証されると、メッセージ拡張機能は API からデータを取得し、メッセージやメールにリッチ フォーマット カードとして埋め込める検索結果を返します。
-
-![Microsoft Teams の外部 API からのデータを使用する検索結果のスクリーンショット。](../media/3-search-results-api.png)
-
-![Microsoft Teams のメッセージに埋め込まれている検索結果のスクリーンショット。](../media/4-adaptive-card.png)
-
-これはプラグインとして Microsoft 365 Copilot と連携して、ユーザーに代わって製品データに対してクエリを実行し、返されたデータをその回答で使用できるようにします。
-
-![メッセージ拡張機能プラグインによって返された情報を含む Microsoft 365 Copilot の回答のスクリーンショット。 製品情報を示すアダプティブ カードが表示されます。](../media/5-copilot-answer.png)
-
-このモジュールを終了するまでには、C# (.NET で実行) で記述されたメッセージ拡張機能を作成できます。 これは、Microsoft Teams、Microsoft Outlook、Microsoft 365 Copilot で使用できます。 保護された API の背後にあるデータに対してクエリを実行し、結果をリッチ フォーマット カードとして返すことができます。
+- **作成**: 宣言型エージェント プロジェクトを作成し、Visual Studio Code で Teams ツールキットを使用します。
+- **カスタム指示**: カスタム指示を定義して応答を整形します。
+- **カスタム グラウンディング**: グラウンディング データを構成して、エージェントにさらにコンテキストを追加します。
+- **会話スターター**: 新しい会話を開始するためのプロンプトを定義します。
+- **プロビジョニング**: 宣言型エージェントを Microsoft 365 Copilot にアップロードし、結果を検証します。
 
 ## 前提条件
 
-- C# の基本的な知識
-- Bicep の基本的な知識
-- 認証に関する基本的な知識
-- Microsoft 365 テナントへの管理者アクセス権
-- Azure サブスクリプションへのアクセス
-- Microsoft 365 Copilot へのアクセスはオプションで、**演習 4: タスク 5** の完了にのみ必要です。
-- Visual Studio 2022 17.10 以降と [Teams Toolkit](/microsoftteams/platform/toolkit/toolkit-v4/teams-toolkit-fundamentals-vs) (Microsoft Teams 開発ツール コンポーネント) がインストールされている
-- [.NET 8.0](https://dotnet.microsoft.com/download/dotnet/8.0)
-- [Dev Proxy 0.19.1 以降](https://aka.ms/devproxy)
-
-> [!NOTE]
-> Microsoft 365 Copilot ライセンスを必要とするこのラボの唯一の演習は、**演習 4: タスク 5** です。 テナントに Copilot があるかどうかに関係なく、その時点までのすべてを行う必要があります。
+- Microsoft 365 Copilot とは何か、およびそのしくみについての基本的な知識
+- Microsoft 365 Copilot の宣言型エージェントとは何かについての基本的な知識
+- Microsoft 365 Copilotを使用した Microsoft 365 テナント
+- カスタム アプリを Microsoft Teams にアップロードする権限を持つアカウント
+- Microsoft 365 Copilotを使用した Microsoft 365 テナントへのアクセス
+- [Teams Toolkit](https://marketplace.visualstudio.com/items?itemName=TeamsDevApp.ms-teams-vscode-extension) 拡張機能がインストールされた [Visual Studio Code](https://code.visualstudio.com/)
+- [Node.js v18](https://nodejs.org/en/download/package-manager)
 
 ## ラボの期間
 
-  - **推定所要時間**: 150 分
+- **推定所要時間**: 30 分
 
 ## 学習の目的
 
-このモジュールを完了すると、次のことができるようになります。
+このモジュールを完了すると、宣言型エージェントを作成し、Microsoft 365 にアップロードしてから、Microsoft 365 Copilot で使用して結果を検証できるようになります。
 
-- メッセージ拡張機能とは何か、およびそれらを構築する方法について理解します。
-- メッセージ拡張機能を作成します。
-- シングル サインオンを使用してユーザーを認証し、Microsoft Entra 認証で保護されたカスタム API を呼び出す方法について理解します。
-- Microsoft 365 Copilot で使用するメッセージ拡張機能を拡張して最適化する方法について理解します。
-
-開始する準備ができたら、[最初の演習に進んでください...](./2-exercise-create-a-message-extension.md)
+開始する準備ができたら、[最初の演習に進んでください...](./2-exercise-create-declarative-agent.md)
