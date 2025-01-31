@@ -41,10 +41,10 @@ Visual Studio Code:
   }
   ```
 
-1. 続行する前に、アクティビティ バーの **[Extensions]** タブで、**Adpative Card Previewer** 拡張機能を検索してインストールし、アダプティブ カードのデータ ファイルを作成します。
+1. 続行する前に、アクティビティ バーの **[Extensions]** タブで、**Adaptive Card Previewer** 拡張機能を検索してインストールし、アダプティブ カードのデータ ファイルを作成します。
   1. <kbd>Ctrl </kbd>+<kbd> P </kbd>キーを押してコマンド パレットを開きます。 「`>Adaptive`」と入力して、アダプティブ カードの操作に関連するコマンドを検索します。
 
-    ![アダプティブ カードの操作に関連するコマンドを示す Visual Studio Code のスクリーンショット。](../media/LAB_03/LAB_03/3-visual-studio-code-adaptive-card-commands.png)
+    ![アダプティブ カードの操作に関連するコマンドを示す Visual Studio Code のスクリーンショット。](../media/LAB_03/3-visual-studio-code-adaptive-card-commands.png)
 
   1. 一覧から **Adaptive Card: New Data File** を選択します。 Visual Studio Code では、**dish.data.json** という名前の新しいファイルを作成します。
   1. その内容を、料理を表すデータに置き換えます。
@@ -68,7 +68,7 @@ Visual Studio Code:
 1. **dish.json** ファイルに戻ります。
 1. レンズから、**[アダプティブ カードの表示]** を選択します。
 
-  ![アダプティブ カードのプレビューを表示している Visual Studio Code のスクリーンショット。](../media/LAB_03/LAB_03/3-visual-studio-code-adaptive-card-preview.png)
+  ![アダプティブ カードのプレビューを表示している Visual Studio Code のスクリーンショット。](../media/LAB_03/3-visual-studio-code-adaptive-card-preview.png)
 
   Visual Studio Code によって、カードのプレビューがサイドに表示されます。 カードを編集すると、変更がすぐに横に表示されます。
 
