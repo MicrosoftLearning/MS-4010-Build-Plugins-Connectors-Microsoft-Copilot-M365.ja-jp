@@ -18,7 +18,16 @@ lab:
 
 - **推定所要時間**: 15 分
 
-## タスク 1 - スターター プロジェクトをダウンロードする
+## タスク 1 - Teams 管理センターでカスタム アプリのアップロードを有効にする
+
+Teams Toolkit を使用して宣言型エージェントを Microsoft 365 にアップロードするには、Teams 管理センターで **[カスタム アプリのアップロード]** を有効にする必要があります。
+
+1. Teams 管理センターで [Teams アプリ]、[アプリの設定ポリシー] の順に移動するか、[[アプリの設定ポリシー]](https://admin.teams.microsoft.com/policies/app-setup) に直接移動します。
+1. ポリシーのリストから **[グローバル (組織全体の既定値)]** を選びます。
+1. **[カスタム アプリのアップロード]** を有効にします。
+1. **[保存]** を選択したあと、その選択を**確認**します。
+
+## タスク 2 - スターター プロジェクトをダウンロードする
 
 まず、Web ブラウザーで GitHub からサンプル プロジェクトをダウンロードします。
 
@@ -33,7 +42,7 @@ lab:
 
 ![エクスプローラー ビューのスターター プロジェクトの Readme ファイルとフォルダー構造を示す Visual Studio Code のスクリーンショット。](../media/LAB_01/create-complete.png)
 
-## タスク 2 - 宣言型エージェント マニフェストを調べる
+## タスク 3 - 宣言型エージェント マニフェストを調べる
 
 宣言型エージェント マニフェスト ファイルを調べてみましょう。
 
@@ -57,13 +66,13 @@ lab:
     You are a declarative agent and were created with Team Toolkit. You should start every response and answer to the user with "Thanks for using Teams Toolkit to create your declarative agent!\n\n" and then answer the questions and help the user.
     ```
 
-## タスク 3 - 宣言型エージェント マニフェストを更新する
+## タスク 4 - 宣言型エージェント マニフェストを更新する
 
 **name** プロパティと **description** プロパティを、このシナリオに関連するように更新しましょう。
 
 1. **appPackage** フォルダーで、**declarativeAgent.json** ファイルを開きます。
-1. **name** プロパティ値を **Product support** に更新します。
-1. **description** プロパティ値を **Product support agent に更新します。これは、Contoso Electronics 製品に関する顧客のクエリに回答するのに役立ちます**。
+1. **name** プロパティ値を **Microsoft 365 Knowledge Expert** に更新します。
+1. **description** プロパティ値を **Microsoft 365 に関するどんな質問にも回答できる Microsoft 365 Knowledge Expert** に更新します。
 1. 変更を保存します
 
 更新されたファイルの内容は次のとおりです。
@@ -72,16 +81,13 @@ lab:
 {
     "$schema": "https://aka.ms/json-schemas/agent/declarative-agent/v1.0/schema.json",
     "version": "v1.0",
-    "name": "Product support",
-    "description": "Product support agent that can help answer customer queries about Contoso Electronics products",
+    "name": "Microsoft 365 Knowledge Expert",
+    "description": "Microsoft 365 Knowledge Expert that can answer any question you have about Microsoft 365",
     "instructions": "$[file('instruction.txt')]"
 }
 ```
 
-## タスク 4 - 宣言型エージェントを Microsoft 365 にアップロードする
-
-> [!IMPORTANT]
-> 開始する前に、Visual Studio Code に Teams Toolkit 拡張機能がインストールされていることを確認します。 マーケットプレースから拡張機能をまだインストールしていない場合は、今すぐインストールします。
+## タスク 5 - 宣言型エージェントを Microsoft 365 にアップロードする
 
 次に、宣言型エージェントを Microsoft 365 テナントにアップロードします。
 
@@ -111,66 +117,29 @@ Visual Studio Code:
 
 **instructions** プロパティの値に、**instruction.txt** ファイルの内容が含まれていることに注目してください。 **declarativeAgent.dev.json** ファイルは、**manifest.dev.json**、**color.png**、**outline.png** の各ファイルと共に、**appPackage.dev.zip** ファイルに含まれています。 **appPackage.dev.zip** ファイルは Microsoft 365 にアップロードされます。
 
-## タスク 5 - Microsoft 365 Copilot で宣言型エージェントをテストする
+> [!IMPORTANT]
+> Microsoft 365 アカウントにログインすると、Visual Studio Code に次の警告またはエラー メッセージが表示されることがあります。 Microsoft Teams でカスタム アプリのアップロードを有効にしたばかりの場合は、設定が有効になるまでに時間がかかる場合があります。  数分待ってからもう一度試すか、ログアウトして Microsoft 365 アカウントでログインし直してください。 テナントには完全な Copilot ライセンスがないので、Microsoft 365 Copilot アクセスに関する 2 番目のメッセージが予想されます。
+> 
+> ![Visual Studio Code の警告のスクリーンショット。](../media/LAB_01/ttk-login-errors.png)
 
-次に、Microsoft 365 Copilot で宣言型エージェントを実行し、**コンテキスト内**と**イマーシブ**の両方のエクスペリエンスでその機能を検証してみましょう。
+## タスク 6 - Microsoft 365 Copilot Chat で宣言型エージェントをテストする
 
-Visual Studio Code:
+次に、Microsoft 365 Copilot Chat で宣言型エージェントを実行し、その機能を検証してみましょう。
 
-1. **Activity Bar**で、**[Run and Debug]** ビューに切り替えます。
+1. **Activity Bar** で、**Teams Toolkit** 拡張機能を開きます。
 
-    ![Visual Studio Code のスクリーンショット。 Activity Bar の [Run and Debug] アイコンが強調表示されています。](../media/LAB_01/debug-open.png)
+    ![Visual Studio Code のスクリーンショット。 Teams Toolkit アイコンがアクティビティ バーで強調表示されています。](../media/LAB_01/teams-toolkit-open.png)
 
-1. 構成のドロップダウンの横にある **[Start Debugging]** ボタンを選択するか、<kbd>F5</kbd> キーを押します。 新しいブラウザー ウィンドウが起動し、Microsoft 365 Copilot に移動します。
+1. **[ライフサイクル]** セクションで、**[発行]** を選択します。 アクションが完了するまで待ちます。
 
-    ![[Run and Debug] ビューを示す Visual Studio Code のスクリーンショット。 [Start Debugging] アイコンが強調表示されています。](../media/LAB_01/debug-start.png)
+1. Microsoft Edge を開き、Microsoft 365 Copilot Chat ([https://www.microsoft365.com/chat](https://www.microsoft365.com/chat)) に移動します。
 
-    ![デバッグ セッションが進行中であることを示す Visual Studio Code のスクリーンショット。](../media/LAB_01/debug-in-progress.png)
+1. **Microsoft 365 Copilot Chat** で、右上にあるアイコンを選択して、Copilot サイド パネルを展開します。 パネルに最近のチャットと利用可能なエージェントが表示されることに注目してください。
 
-    ![Microsoft 365 Copilot を示す Microsoft Edge のスクリーンショット。](../media/LAB_01/debug-microsoft-365-copilot.png)
+1. サイド パネルで、**[Microsoft 365 Knowledge Expert]** を選択してイマーシブ エクスペリエンスに入り、エージェントと直接チャットします。
 
-ブラウザーで続けて、**コンテキスト内**エクスペリエンスをテストしてみましょう。
-
-1. **Microsoft 365 Copilot** で、メッセージ ボックスに <kbd>@</kbd> 記号を入力します。 使用可能なエージェントの一覧を示すポップアップが表示されます。
-
-    ![Microsoft 365 Copilot のエージェント ポップアップを示す Microsoft Edge のスクリーンショット。 製品サポート エージェントが強調表示されています。](../media/LAB_01/test-in-context-agent-flyout.png)
-
-1. ポップアップで **Product support** を選択します。 メッセージ ボックスの上にあるステータス メッセージに注目してください。 **Chatting with Product support** が表示されます。これは、エージェントのコンテキスト内エクスペリエンスを使用していることを示します。
-
-    ![Microsoft 365 Copilot を示す Microsoft Edge のスクリーンショット。 ステータス メッセージ 'Chatting with Product support' が強調表示されています。](../media/LAB_01/test-in-context-agent.png)
-
-1. テキスト ボックスに「**What can you do?**」と入力し、メッセージを送信します。
-
-    ![Microsoft 365 Copilot を示す Microsoft Edge のスクリーンショット。 テキスト "What can you do?" がメッセージ ボックスで強調表示されています。](../media/LAB_01/test-in-context-message.png)
-
-1. 応答を待ちます。 応答がテキスト "Thanks for using Teams Toolkit to create your declarative agent!" で始まることに注目してください。 前に確認した手順で定義されているとおりです。
-
-    ![Microsoft 365 Copilot を示す Microsoft Edge のスクリーンショット。 製品サポート エージェントからの応答が表示されます。](../media/LAB_01/test-in-context-response.png)
-
-1. コンテキスト内エクスペリエンスを終了するには、ステータス メッセージでバツ (X) を選択します。 ステータス メッセージが削除され、エージェントとのチャットが終了したことを示すメッセージがチャット ウィンドウに表示されます。
-
-    ![Microsoft 365 Copilot を示す Microsoft Edge のスクリーンショット。 エージェント ステータスメッセージのクロス アイコンが強調表示されています。](../media/LAB_01/test-in-context-exit.png)
-
-    ![Microsoft 365 Copilot を示す Microsoft Edge のスクリーンショット。 宣言型エージェントが応答していないことを確認するメッセージが強調表示されます。](../media/LAB_01/test-in-context-exit-confirm.png)
-
-最後に、**イマーシブ** エクスペリエンスをテストしてみましょう。
-
-Web ブラウザーでの続行:
-
-1. **Microsoft 365 Copilot** で、右上にあるアイコンを選択して、Copilot サイド パネルを展開します。 パネルに最近のチャットと利用可能なエージェントが表示されることに注目してください。
+1. エージェントに「**What can you do?**」と質問し、プロンプトを送信します。
 
     ![Microsoft 365 Copilot を示す Microsoft Edge のスクリーンショット。 サイド パネルを開くアイコンと、パネル内の製品サポート エージェントが強調表示されています。](../media/LAB_01/test-immersive-side-panel.png)
 
-1. サイド パネルで、**Product support** を選択してイマーシブ エクスペリエンスを入力し、エージェントと直接チャットします。 インターフェイスに 2 つのサンプル プロンプトが表示されていることに注目してください。
-
-    ![Microsoft 365 Copilot を示す Microsoft Edge のスクリーンショット。 既定の会話スターターが強調表示されます。](../media/LAB_01/test-immersive.png)
-
-1. **Learn more** というタイトルのサンプル プロンプトを選択します。 テキスト ボックスにテキスト **What can you do?** が追加されたことに注目してください。
-
-    ![Microsoft 365 Copilot を示す Microsoft Edge のスクリーンショット。 Learn More 会話スターター テキストがメッセージ ボックスで強調表示されています。](../media/LAB_01/test-immersive-learn-more.png)
-
-1. メッセージを送信し、応答を待ちます。 応答がテキスト "Thanks for using Teams Toolkit to create your declarative agent!" で始まることに注目してください。 前に確認した手順で定義されているとおりです。
-
-    ![Microsoft 365 Copilot を示す Microsoft Edge のスクリーンショット。 製品サポート エージェントからの応答が表示されます。](../media/LAB_01/test-immersive-response.png)
-
-最後に、ブラウザーを閉じて、Visual Studio Code でデバッグ セッションを停止します。
+次の演習に進んでください。

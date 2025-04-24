@@ -122,6 +122,7 @@ Visual Studio Code:
     > 書式設定を保持するために、Visual Studio Code にコピーする前に、メモ帳に複数のコピー/貼り付け操作を行う必要がある場合があります。
 
     1. 変更を保存します。
+
 1. ユーザーを支援するには、エージェントをどのように利用できるかを理解し、会話スターターを追加します。
     1. **appPackage/declarativeAgent.json** ファイルを開きます。
     1. **instructions** プロパティの後に、**conversation_starters** という名前の新しいプロパティを追加します。

@@ -22,12 +22,12 @@ Visual Studio Code:
    ```json
    "conversation_starters": [
        {
-           "title": "Product information",
-           "text": "Tell me about Eagle Air"
+           "title": "Microsoft 365",
+           "text": "Tell me about Microsoft 365"
        },
        {
-           "title": "Returns policy",
-           "text": "What is the returns policy?"
+           "title": "Licensing",
+           "text": "What licenses are available for Microsoft 365?"
        },
        {
            "title": "Product information",
@@ -36,10 +36,6 @@ Visual Studio Code:
        {
            "title": "Product troubleshooting",
            "text": "I'm having trouble with a product. Can you help me troubleshoot the issue?"
-       },
-       {
-           "title": "Repair information",
-           "text": "Can you provide information on how to get a product repaired?"
        },
        {
            "title": "Contact support",
@@ -55,68 +51,61 @@ Visual Studio Code:
 ```json
 {
   "$schema": "https://developer.microsoft.com/json-schemas/copilot/declarative-agent/v1.0/schema.json",
-  "version": "v1.0",
-  "name": "Product support",
-  "description": "Product support agent that can help answer customer queries about Contoso Electronics products",
-  "instructions": "$[file('instruction.txt')]",
-  "capabilities": [
-    {
-      "name": "OneDriveAndSharePoint",
-      "items_by_url": [
+    "version": "v1.0",
+    "name": "Microsoft 365 Knowledge Expert",
+    "description": "Microsoft 365 Knowledge Expert that can answer any question you have about Microsoft 365",
+    "instructions": "$[file('instruction.txt')]",
+    "capabilities": [
         {
-          "url": "https://{tenant}-my.sharepoint.com/personal/{user}/Documents/Products"
+            "name": "WebSearch",
+            "sites": [
+                {
+                    "url": "https://learn.microsoft.com/microsoft-365/"
+                }
+            ]
         }
-      ]
-    }
-  ],
+    ],
   "conversation_starters": [
-    {
-      "title": "Product information",
-      "text": "Tell me about Eagle Air"
-    },
-    {
-      "title": "Returns policy",
-      "text": "What is the returns policy?"
-    },
-    {
-      "title": "Product information",
-      "text": "Can you provide information on a specific product?"
-    },
-    {
-      "title": "Product troubleshooting",
-      "text": "I'm having trouble with a product. Can you help me troubleshoot the issue?"
-    },
-    {
-      "title": "Repair information",
-      "text": "Can you provide information on how to get a product repaired?"
-    },
-    {
-      "title": "Contact support",
-      "text": "How can I contact support for help?"
-    }
+       {
+           "title": "Microsoft 365",
+           "text": "Tell me about Microsoft 365"
+       },
+       {
+           "title": "Licensing",
+           "text": "What licenses are available for Microsoft 365?"
+       },
+       {
+           "title": "Product information",
+           "text": "Can you provide information on a specific product?"
+       },
+       {
+           "title": "Product troubleshooting",
+           "text": "I'm having trouble with a product. Can you help me troubleshoot the issue?"
+       },
+       {
+           "title": "Contact support",
+           "text": "How can I contact support for help?"
+       }
   ]
 }
 ```
 
-## タスク 2 - Microsoft 365 Copilot で宣言型エージェントをテストする
+## タスク 2 - Microsoft 365 Copilot Chat で宣言型エージェントをテストする
 
 次に、変更をアップロードし、デバッグ セッションを開始します。
 
 Visual Studio Code:
 
 1. **Activity Bar** で、**Teams Toolkit** 拡張機能を開きます。
-1. **[Lifecycle]** セクションで、**[Provision]** を選択します。
+1. **[Lifecycle]** セクションで、**[Provision]** と **[Publish]** を選択します。
+1. **[Confirm]** をクリックして、アプリカタログのアップデートの送信を確認します。
 1. アップロードが完了するまで待ちます。
-1. **Activity Bar**で、**[Run and Debug]** ビューに切り替えます。
-1. 構成のドロップダウンの横にある **[Start Debugging]** ボタンを選択するか、<kbd>F5</kbd> キーを押します。 新しいブラウザー ウィンドウが起動し、Microsoft 365 Copilot に移動します。
-
-次に、宣言型エージェントを Microsoft 365 でテストし、結果を検証します。
 
 Web ブラウザーでの続行:
 
 1. **Microsoft 365 Copilot** で、右上のアイコンを選択して、**Copilot サイド パネル**を展開します。
 1. エージェントの一覧から **Product support** を見つけ、それを選択して、イマーシブ エクスペリエンスを入力し、エージェントと直接チャットします。 マニフェストで定義した会話スターターがユーザー インターフェイスに表示されることに注目してください。
 
-![カスタム会話スターターを使用したイマーシブ エクスペリエンスでの製品サポート宣言型エージェントを示す Microsoft Edge のスクリーンショット。](../media/LAB_01/test-conversation-starters.png)
+![Microsoft 365 Knowledge Expert の宣言型エージェントを、カスタム会話スターターを使用したイマーシブ エクスペリエンスでの製品サポート宣言型エージェントを示す Microsoft Edge のスクリーンショット。](../media/LAB_01/test-conversation-starters.png)
 
 ブラウザーを閉じて、Visual Studio Code のデバッグ セッションを終了します。
