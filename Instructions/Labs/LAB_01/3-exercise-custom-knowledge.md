@@ -19,7 +19,7 @@ lab:
 Visual Studio Code:
 
 1. **appPackage** フォルダーで、**declarativeAgent.json** ファイルを開きます。
-1. ファイル内の **[instructions]** 定義の後に以下のコード スニペットを追加します。**{URL}** は、Microsoft Learn の Microsoft 365 ランディング ページに直接リンクする URL に置き換えます。
+1. **"instructions"** 定義の後に次のコード スニペットを追加します。**{URL}** を、Microsoft Learn の Microsoft 365 ランディング ページに直接アクセスする URL に置き換えます。
 
     ```json
     "capabilities": [

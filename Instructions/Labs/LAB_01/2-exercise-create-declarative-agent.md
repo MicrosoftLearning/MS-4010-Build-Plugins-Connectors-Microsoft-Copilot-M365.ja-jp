@@ -130,7 +130,7 @@ Visual Studio Code:
 
     ![Visual Studio Code のスクリーンショット。 Teams Toolkit アイコンがアクティビティ バーで強調表示されています。](../media/LAB_01/teams-toolkit-open.png)
 
-1. **[ライフサイクル]** セクションで、**[発行]** を選択します。 アクションが完了するまで待ちます。
+1. **[ライフサイクル]** セクションで、**[組織に公開する]** を選択します。 アクションが完了するまで待ちます。
 
 1. Microsoft Edge を開き、Microsoft 365 Copilot Chat ([https://www.microsoft365.com/chat](https://www.microsoft365.com/chat)) に移動します。
 
