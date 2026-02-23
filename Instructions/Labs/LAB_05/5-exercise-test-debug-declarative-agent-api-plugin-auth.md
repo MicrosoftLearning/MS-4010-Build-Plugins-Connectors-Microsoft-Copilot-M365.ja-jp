@@ -4,9 +4,17 @@ lab:
   module: 'LAB 05: Authenticate your API plugin for declarative agents with secured APIs'
 ---
 
-# 演習 34: Microsoft 365 Copilot で宣言型エージェントをテストする
+# 演習 4: Microsoft 365 Copilot で宣言型エージェントをテストする
 
 この演習では、宣言型エージェントをテストして Microsoft 365 に展開し、Microsoft 365 Copilot Chat を使用してテストします。
+
+> [!NOTE]
+> 続ける前に、現在のスキーマに合わせて **manifest.json** を更新します。
+> - **.env.local** ファイルの **TEAMS_APP_ID** から正しい値を使用して、`manifest.json` の **`id`** を更新します。
+> - **`short`** 名を `da-repairs-oauth${APP_NAME_SUFFIX}` から **`da-repairs-oauth`** に更新します。
+> - **`copilotExtensions`** の名前を **`copilotAgents`** に変更します。
+> - **`declarativeCopilots`** の名前を **`declarativeAgents`** に変更します。
+
 
 ### 演習の期間
 
@@ -47,7 +55,7 @@ Web ブラウザーで以下を行います。
 
     ![API へのデータ送信を許可するプロンプトのスクリーンショット。](../media/LAB_05/5-allow-data.png)
 
-1. メッセージが表示されたら、**[Sign in to da-repairs-oauthlocal]** を選択し、API にサインインして、microsoft 365 テナントへのサインインに使用するアカウントと同じアカウントを引き続き使用します。
+1. メッセージが表示されたら、**[Sign in to da-repairs-oauthlocal]** を選択し、API にサインインして、Microsoft 365 テナントへのサインインに使用するアカウントと同じアカウントを引き続き使用します。
 
     ![API をセキュリティで保護するアプリへのサインインを促すプロンプトのスクリーンショット。](../media/LAB_05/5-sign-in.png)
 
