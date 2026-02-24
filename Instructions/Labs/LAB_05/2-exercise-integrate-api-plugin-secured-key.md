@@ -107,7 +107,7 @@ Visual Studio Code:
 
 Visual Studio Code:
 
-1. **./teampsapp.local.yml** ファイルを開きます。
+1. **./m365agents.local.yml** ファイルを開きます。
 1. **provision** セクションで、**apiKey/register** タスクを見つけます。
 
   ```yml
