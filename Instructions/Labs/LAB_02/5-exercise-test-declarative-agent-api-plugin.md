@@ -2,6 +2,13 @@
 lab:
   title: 演習 4 - Microsoft 365 Copilot で API プラグインを使用した宣言型エージェントをテストする
   module: 'LAB 02: Build your first action for declarative agents with API plugin by using Visual Studio Code'
+  description: 最後の手順では、Microsoft 365 Copilot の API プラグインを使用して宣言型エージェントをテストします。
+  duration: 10 minutes
+  level: 200
+  islab: true
+  primarytopics:
+    - Microsoft 365
+    - Microsoft 365 Copilot
 ---
 
 # 演習 4 - Microsoft 365 Copilot で API プラグインを使用した宣言型エージェントをテストする

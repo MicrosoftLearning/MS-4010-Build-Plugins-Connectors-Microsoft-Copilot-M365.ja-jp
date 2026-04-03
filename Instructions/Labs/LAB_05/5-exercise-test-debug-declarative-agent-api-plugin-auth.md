@@ -2,6 +2,14 @@
 lab:
   title: '演習 4: Microsoft 365 Copilot Chat で宣言型エージェントをテストする'
   module: 'LAB 05: Authenticate your API plugin for declarative agents with secured APIs'
+  description: この演習では、宣言型エージェントをテストして Microsoft 365 に展開し、Microsoft 365 Copilot Chat を使用してテストします。
+  duration: 5 minutes
+  level: 200
+  islab: true
+  primarytopics:
+    - Microsoft 365
+    - Microsoft 365 Copilot
+    - Microsoft 365 Copilot Chat
 ---
 
 # 演習 4: Microsoft 365 Copilot で宣言型エージェントをテストする

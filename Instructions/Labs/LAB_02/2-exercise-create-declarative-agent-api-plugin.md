@@ -2,6 +2,10 @@
 lab:
   title: 演習 1 - プロジェクトをダウンロードしてファイルを調べる
   module: 'LAB 02: Build your first action for declarative agents with API plugin by using Visual Studio Code'
+  description: この演習では、API はこのファイルをデータ ソースとして使用します。
+  duration: 10 minutes
+  level: 100
+  islab: true
 ---
 
 # 演習 1 - プロジェクトをダウンロードしてファイルを調べる
@@ -19,7 +23,7 @@ lab:
 1. [https://github.com/microsoft/learn-declarative-agent-api-plugin-typescript](https://github.com/microsoft/learn-declarative-agent-api-plugin-typescript) に移動します。
     1. 手順に従って、コンピューターに[リポジトリのソース コードをダウンロード](https://docs.github.com/repositories/working-with-files/using-files/downloading-source-code-archives#downloading-source-code-archives-from-the-repository-view)します。
     1. ダウンロードした ZIP ファイルの内容をコンピューター上の **Documents フォルダー**に展開します。
-    1. Visual Studio Code で  フォルダーを開きます。
+    1. Visual Studio Code でフォルダーを開きます。
 
 サンプル プロジェクトは、宣言型エージェントと Azure Functions で実行されている匿名 API を含む Teams Toolkit プロジェクトです。 宣言型エージェントは、Teams Toolkit を使用して新しく作成された宣言型エージェントと同じです。 API は架空のイタリア料理レストランに属しており、今日のメニューを参照して注文することができます。
 

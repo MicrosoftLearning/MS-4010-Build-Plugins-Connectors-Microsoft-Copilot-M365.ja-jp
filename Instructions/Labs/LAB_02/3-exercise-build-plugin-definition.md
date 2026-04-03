@@ -2,6 +2,13 @@
 lab:
   title: 演習 2 - API プラグイン定義をビルドする
   module: 'LAB 02: Build your first action for declarative agents with API plugin by using Visual Studio Code'
+  description: API プラグインは、API 仕様で定義されている API 操作にマップされる 1 つ以上の関数を定義します。 各関数は、ユーザーにデータを表示する方法をエージェントに指示する名前、説明、応答の定義で構成されます。
+  duration: 10 minutes
+  level: 300
+  islab: true
+  primarytopics:
+    - Microsoft 365
+    - Microsoft 365 Copilot
 ---
 
 # 演習 2 - API プラグイン定義をビルドする
@@ -263,5 +270,5 @@ Visual Studio Code:
     }
     ```
 
-1. 変更を保存します。
+1. 変更を保存。
 

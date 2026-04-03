@@ -2,6 +2,10 @@
 lab:
   title: '演習 2: 宣言型エージェントを作成し、Graph コネクタを統合する'
   module: 'LAB 04: Add custom knowledge to declarative agents using Microsoft Graph connectors and Visual Studio Code'
+  description: Teams Toolkit は、新しい宣言型エージェント プロジェクトを作成します。 シナリオにスコープを設定するには、エージェントの説明と手順を更新します。
+  duration: 10 minutes
+  level: 200
+  islab: true
 ---
 
 # 演習 2: 宣言型エージェントを作成し、Graph コネクタを統合する

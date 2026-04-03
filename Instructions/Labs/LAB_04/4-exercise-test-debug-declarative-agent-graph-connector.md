@@ -2,6 +2,14 @@
 lab:
   title: '演習 3: テストとデバッグ'
   module: 'LAB 04: Add custom knowledge to declarative agents using Microsoft Graph connectors and Visual Studio Code'
+  description: この演習では、宣言型エージェントをテストして Microsoft 365 に展開し、Microsoft 365 Copilot Chat を使用してテストします。
+  duration: 5 minutes
+  level: 300
+  islab: true
+  primarytopics:
+    - Microsoft 365
+    - Microsoft 365 Copilot
+    - Microsoft 365 Copilot Chat
 ---
 
 # 演習 3: テストとデバッグ

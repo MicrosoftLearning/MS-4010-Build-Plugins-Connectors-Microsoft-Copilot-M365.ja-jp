@@ -2,6 +2,10 @@
 lab:
   title: '演習 1: キーで保護された API と API プラグインを統合する'
   module: 'LAB 05: Authenticate your API plugin for declarative agents with secured APIs'
+  description: この演習では、生成した API キーで認証を行う API プラグインを使用して、新しい宣言型エージェントを作成します。
+  duration: 10 minutes
+  level: 300
+  islab: true
 ---
 
 # 演習 1: キーで保護された API と API プラグインを統合する

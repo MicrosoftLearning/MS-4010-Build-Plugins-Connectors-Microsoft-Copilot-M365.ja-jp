@@ -1,7 +1,13 @@
 ---
 lab:
-  title: 導入
+  title: はじめに
   module: 'LAB 01: Build a declarative agent for Microsoft 365 Copilot using Visual Studio Code'
+  description: ここでは、Microsoft 365 のドキュメントに格納されている情報を使用して、製品サポートの質問に回答できる宣言型エージェントを作成します。
+  duration: 30 minutes
+  level: 100
+  islab: true
+  primarytopics:
+    - Microsoft 365
 ---
 
 # はじめに

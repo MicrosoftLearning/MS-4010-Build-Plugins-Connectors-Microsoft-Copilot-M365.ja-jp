@@ -2,6 +2,13 @@
 lab:
   title: 演習 3 - Microsoft 365 Copilot の API プラグインを使用して宣言型エージェントをテストする
   module: 'LAB 03: Use Adaptive Cards to show data in API plugins for declarative agents'
+  description: 最後の手順では、Microsoft 365 Copilot の API プラグインを使用して宣言型エージェントをテストします。
+  duration: 10 minutes
+  level: 200
+  islab: true
+  primarytopics:
+    - Microsoft 365
+    - Microsoft 365 Copilot
 ---
 
 # 演習 3 - Microsoft 365 Copilot の API プラグインを使用して宣言型エージェントをテストする

@@ -2,6 +2,10 @@
 lab:
   title: 演習 3 - プラグイン定義を宣言型エージェントに接続する
   module: 'LAB 02: Build your first action for declarative agents with API plugin by using Visual Studio Code'
+  description: この演習で構築する宣言型エージェントは、ユーザーが地元のイタリア料理レストランのメニューを閲覧して注文するのに役立ちます。 このシナリオに合わせてエージェントを最適化するには、名前、説明、手順を更新します。
+  duration: 5 minutes
+  level: 100
+  islab: true
 ---
 
 # 演習 3 - プラグイン定義を宣言型エージェントに接続する

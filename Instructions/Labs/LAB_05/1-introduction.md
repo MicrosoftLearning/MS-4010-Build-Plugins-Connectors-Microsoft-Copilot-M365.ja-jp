@@ -1,7 +1,14 @@
 ---
 lab:
-  title: 導入
+  title: はじめに
   module: 'LAB 05: Authenticate your API plugin for declarative agents with secured APIs'
+  description: Microsoft 365 Copilot エージェントを使用すると、特定のシナリオに最適化された AI を利用したアシスタントを作成できます。 手順を使用して、エージェントのコンテキストを定義し、話し方や応答方法などを設定します。 エージェントを API と統合すれば、エージェントが外部アプリケーションに接続してデータを取得し、アクションを実行できるようになります。
+  duration: 16 minutes
+  level: 200
+  islab: true
+  primarytopics:
+    - Microsoft 365
+    - Microsoft 365 Copilot
 ---
 
 # はじめに

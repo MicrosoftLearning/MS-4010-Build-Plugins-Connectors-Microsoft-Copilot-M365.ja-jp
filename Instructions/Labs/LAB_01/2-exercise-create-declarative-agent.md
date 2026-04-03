@@ -2,6 +2,15 @@
 lab:
   title: 演習 1 - Visual Studio Code で宣言型エージェントを作成する
   module: 'LAB 01: Build a declarative agent for Microsoft 365 Copilot using Visual Studio Code'
+  description: この演習では、テンプレートから宣言型エージェント プロジェクトを作成し、マニフェストを更新し、エージェントを Microsoft 365 にアップロードして、Microsoft 365 Copilot でエージェントをテストします。
+  duration: 15 minutes
+  level: 100
+  islab: true
+  primarytopics:
+    - Microsoft 365
+    - Microsoft 365 Copilot
+    - Visual Studio
+    - Visual Studio Code
 ---
 
 # 演習 1 - 宣言型エージェントを作成する

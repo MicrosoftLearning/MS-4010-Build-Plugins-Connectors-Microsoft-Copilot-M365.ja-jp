@@ -2,6 +2,10 @@
 lab:
   title: 演習 3 - 宣言型エージェントに会話スターターを追加する
   module: 'LAB 01: Build a declarative agent for Microsoft 365 Copilot using Visual Studio Code'
+  description: この演習では、ユーザーが質問できる質問の種類を理解するのに役立つサンプル プロンプトをユーザーに提供する会話スターターを含むように宣言型エージェントを更新します。
+  duration: 5 minutes
+  level: 100
+  islab: true
 ---
 
 # 演習 3 - 宣言型エージェントに会話スターターを追加する

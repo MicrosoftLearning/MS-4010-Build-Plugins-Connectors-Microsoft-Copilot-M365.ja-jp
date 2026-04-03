@@ -2,6 +2,12 @@
 lab:
   title: 演習 2 - カスタム ナレッジを構成する
   module: 'LAB 01: Build a declarative agent for Microsoft 365 Copilot using Visual Studio Code'
+  description: この演習では、エージェントのグラウンディング ソースとして Microsoft Learn を利用した学習を行います。 この演習を受講することで、エージェントは Microsoft 365 のエキスパートになるでしょう。
+  duration: 10 minutes
+  level: 200
+  islab: true
+  primarytopics:
+    - Microsoft 365
 ---
 
 # 演習 2 - カスタム ナレッジを構成する

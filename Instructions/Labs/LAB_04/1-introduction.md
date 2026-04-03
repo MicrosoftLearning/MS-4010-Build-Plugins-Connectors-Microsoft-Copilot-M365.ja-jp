@@ -1,7 +1,15 @@
 ---
 lab:
-  title: 導入
+  title: はじめに
   module: 'LAB 04: Add custom knowledge to declarative agents using Microsoft Graph connectors and Visual Studio Code'
+  description: このモジュールを終了すると、Microsoft 365 Copilot 用の宣言型エージェントを構築できるようになります。 特定のシナリオに合わせて指示を最適化するように構成する方法について説明します。 また、Microsoft Graph コネクタと統合して外部データにアクセスできるようにする方法についても説明します。これは Microsoft 365 Copilot の LLM の一部ではありません。
+  duration: 16 minutes
+  level: 200
+  islab: true
+  primarytopics:
+    - Microsoft 365
+    - Microsoft 365 Copilot
+    - Microsoft Graph
 ---
 
 # はじめに
