@@ -5,10 +5,7 @@ lab:
   description: このモジュールでは、宣言型エージェント用の既存の API プラグインを拡張し、アダプティブ カードを使用して API から受け取る情報をレンダリングします。 学習内容は、次のとおりです。
   duration: 35 minutes
   level: 300
-  islab: false
-  primarytopics:
-    - Microsoft 365
-    - Microsoft 365 Copilot
+  islab: true
 ---
 
 # はじめに

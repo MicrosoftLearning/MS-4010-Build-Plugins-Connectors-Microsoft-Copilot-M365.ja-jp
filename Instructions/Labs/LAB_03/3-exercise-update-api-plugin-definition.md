@@ -4,11 +4,8 @@ lab:
   module: 'LAB 03: Use Adaptive Cards to show data in API plugins for declarative agents'
   description: 次の手順では、API プラグインの定義をアダプティブ カードで更新します。これは、API からのデータをユーザーに表示するために Copilot が使用する必要があります。
   duration: 10 minutes
-  level: 300
+  level: 200
   islab: true
-  primarytopics:
-    - Microsoft 365
-    - Microsoft 365 Copilot
 ---
 
 # 演習 2 - API プラグイン定義を更新する
