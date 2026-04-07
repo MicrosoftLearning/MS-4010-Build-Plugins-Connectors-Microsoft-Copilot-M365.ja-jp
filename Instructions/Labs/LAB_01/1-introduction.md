@@ -4,10 +4,11 @@ lab:
   module: 'LAB 01: Build a declarative agent for Microsoft 365 Copilot using Visual Studio Code'
   description: ここでは、Microsoft 365 のドキュメントに格納されている情報を使用して、製品サポートの質問に回答できる宣言型エージェントを作成します。
   duration: 30 minutes
-  level: 100
-  islab: true
+  level: 300
+  islab: false
   primarytopics:
     - Microsoft 365
+    - Microsoft 365 Copilot
 ---
 
 # はじめに
@@ -22,7 +23,7 @@ lab:
 
 ここでは、Microsoft 365 のドキュメントに格納されている情報を使用して、製品サポートの質問に回答できる宣言型エージェントを作成します。
 
-- **作成**: 宣言型エージェント プロジェクトを作成し、Visual Studio Code で Teams ツールキットを使用します。
+- **作成**: 宣言型エージェント プロジェクトを作成し、Visual Studio Code で Microsoft 365 エージェント ツールキットを使用します。
 - **カスタム指示**: カスタム指示を定義して応答を整形します。
 - **カスタム グラウンディング**: グラウンディング データを構成して、エージェントにさらにコンテキストを追加します。
 - **会話スターター**: 新しい会話を開始するためのプロンプトを定義します。
@@ -35,7 +36,7 @@ lab:
 - Microsoft 365 Copilotを使用した Microsoft 365 テナント
 - カスタム アプリを Microsoft Teams にアップロードする権限を持つアカウント
 - Microsoft 365 Copilotを使用した Microsoft 365 テナントへのアクセス
-- [Teams Toolkit](https://marketplace.visualstudio.com/items?itemName=TeamsDevApp.ms-teams-vscode-extension) 拡張機能がインストールされた [Visual Studio Code](https://code.visualstudio.com/)
+- [Visual Studio Code](https://code.visualstudio.com/) と [Microsoft 365 エージェント ツールキット](https://marketplace.visualstudio.com/items?itemName=TeamsDevApp.ms-teams-vscode-extension)拡張機能がインストールされている
 - [Node.js v18](https://nodejs.org/en/download/package-manager)
 
 ## ラボの期間

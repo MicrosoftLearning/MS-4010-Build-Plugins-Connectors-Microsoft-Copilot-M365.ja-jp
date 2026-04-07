@@ -26,8 +26,8 @@ lab:
 
 Visual Studio Code:
 
-1. **Activity Bar** (サイド バー) で、**[Teams Toolkit]** 拡張機能を開きます。
-1. **Lifecycle** ペインで、**[Provision]** を選択します。 Teams Toolkit は、宣言型エージェント プロジェクトをアプリとしてパッケージ化し、Microsoft 365 にアップロードします。
+1. **アクティビティ バー** (サイド バー) で、**[Microsoft 365 エージェント ツールキット]** 拡張機能を開きます。
+1. **Lifecycle** ペインで、**[Provision]** を選択します。 Microsoft 365 エージェント ツールキットは、宣言型エージェント プロジェクトをアプリとしてパッケージ化し、Microsoft 365 にアップロードします。
 1. Web ブラウザーを開きます。
 
 Web ブラウザーで以下を行います。

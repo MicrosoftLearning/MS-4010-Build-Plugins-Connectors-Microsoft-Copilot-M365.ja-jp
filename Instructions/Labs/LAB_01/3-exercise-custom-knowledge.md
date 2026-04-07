@@ -4,10 +4,11 @@ lab:
   module: 'LAB 01: Build a declarative agent for Microsoft 365 Copilot using Visual Studio Code'
   description: この演習では、エージェントのグラウンディング ソースとして Microsoft Learn を利用した学習を行います。 この演習を受講することで、エージェントは Microsoft 365 のエキスパートになるでしょう。
   duration: 10 minutes
-  level: 200
+  level: 300
   islab: true
   primarytopics:
     - Microsoft 365
+    - Microsoft 365 Copilot
 ---
 
 # 演習 2 - カスタム ナレッジを構成する
@@ -84,7 +85,7 @@ Visual Studio Code:
 
 Visual Studio Code:
 
-1. **Activity Bar** で、**Teams Toolkit** 拡張機能を開きます。
+1. **アクティビティ バー**で、**[Microsoft 365 エージェント ツールキット]** 拡張機能を開きます。
 1. **[Lifecycle]** セクションで、**[Provision]** と **[Publish]** を選択します。
 1. **[Confirm]** をクリックして、アプリカタログのアップデートの送信を確認します。
 1. 公開タスクが完了するまで待ちます。

@@ -4,7 +4,7 @@ lab:
   module: 'LAB 01: Build a declarative agent for Microsoft 365 Copilot using Visual Studio Code'
   description: この演習では、テンプレートから宣言型エージェント プロジェクトを作成し、マニフェストを更新し、エージェントを Microsoft 365 にアップロードして、Microsoft 365 Copilot でエージェントをテストします。
   duration: 15 minutes
-  level: 100
+  level: 300
   islab: true
   primarytopics:
     - Microsoft 365
@@ -29,7 +29,7 @@ lab:
 
 ## タスク 1 - Teams 管理センターでカスタム アプリのアップロードを有効にする
 
-Teams Toolkit を使用して宣言型エージェントを Microsoft 365 にアップロードするには、Teams 管理センターで **[カスタム アプリのアップロード]** を有効にする必要があります。
+Microsoft 365 エージェント ツールキットを使用して宣言型エージェントを Microsoft 365 にアップロードするには、Teams 管理センターで **[カスタム アプリのアップロード]** を有効にする必要があります。
 
 1. Teams 管理センターで [Teams アプリ]、[アプリの設定ポリシー] の順に移動するか、[[アプリの設定ポリシー]](https://admin.teams.microsoft.com/policies/app-setup) に直接移動します。
 1. ポリシーのリストから **[グローバル (組織全体の既定値)]** を選びます。
@@ -44,12 +44,12 @@ Teams Toolkit を使用して宣言型エージェントを Microsoft 365 にア
     1. 手順に従って、コンピューターに[リポジトリのソース コードをダウンロード](https://docs.github.com/repositories/working-with-files/using-files/downloading-source-code-archives#downloading-source-code-archives-from-the-repository-view)します。
     1. ダウンロードした ZIP ファイルの内容をコンピューター上の **Documents フォルダー**に展開します。
 
-スターター プロジェクトには、宣言型エージェントを含む Teams Toolkit プロジェクトが含まれています。
+スターター プロジェクトには、宣言型エージェントを含む Microsoft 365 エージェント ツールキット プロジェクトが含まれています。
 
 1. Visual Studio Code で  プロジェクト フォルダーを開きます。
 1. プロジェクトのルート フォルダーで、**README.md** ファイルを開きます。 プロジェクト構造の詳細については、内容を確認します。
 
-![エクスプローラー ビューのスターター プロジェクトの Readme ファイルとフォルダー構造を示す Visual Studio Code のスクリーンショット。](../media/LAB_01/create-complete.png)
+![エクスプローラー ビューのスターター プロジェクトの Readme ファイルとフォルダー構造を示す Visual Studio Code のスクリーンショット。](../media/LAB_01/m365-agents-toolkit-project.png)
 
 ## タスク 3 - 宣言型エージェント マニフェストを調べる
 
@@ -62,17 +62,17 @@ Teams Toolkit を使用して宣言型エージェントを Microsoft 365 にア
         "$schema": "https://aka.ms/json-schemas/agent/declarative-agent/v1.0/schema.json",
         "version": "v1.0",
         "name": "da-product-support",
-        "description": "Declarative agent created with Teams Toolkit",
+        "description": "Declarative agent created with Microsoft 365 Agents Toolkit",
         "instructions": "$[file('instruction.txt')]"
     }
     ```
 
-**instructions** プロパティの値には、**instruction.txt** という名前のファイルへの参照が含まれています。 **$[file(path)]** 関数は Teams Toolkit によって提供されます。 **instruction.txt** の内容は、Microsoft 365 にプロビジョニングされるときに宣言型エージェント マニフェスト ファイルに含まれます。
+**instructions** プロパティの値には、**instruction.txt** という名前のファイルへの参照が含まれています。 **$[file(path)]** 関数は、Microsoft 365 エージェント ツールキットによって提供されます。 **instruction.txt** の内容は、Microsoft 365 にプロビジョニングされるときに宣言型エージェント マニフェスト ファイルに含まれます。
 
 - **appPackage** フォルダーで、**instruction.txt** ファイルを開き、内容を確認します。
 
     ```md
-    You are a declarative agent and were created with Team Toolkit. You should start every response and answer to the user with "Thanks for using Teams Toolkit to create your declarative agent!\n\n" and then answer the questions and help the user.
+    You are a declarative agent and were created with Microsoft 365 Agents Toolkit. You should start every response and answer to the user with "Thanks for using Microsoft 365 Agents Toolkit to create your declarative agent!\n\n" and then answer the questions and help the user.
     ```
 
 ## タスク 4 - 宣言型エージェント マニフェストを更新する
@@ -102,15 +102,15 @@ Teams Toolkit を使用して宣言型エージェントを Microsoft 365 にア
 
 Visual Studio Code:
 
-1. **Activity Bar** で、**Teams Toolkit** 拡張機能を開きます。
+1. **アクティビティ バー**で、**[Microsoft 365 エージェント ツールキット]** 拡張機能を開きます。
 
-    ![Visual Studio Code のスクリーンショット。 Teams Toolkit アイコンがアクティビティ バーで強調表示されています。](../media/LAB_01/teams-toolkit-open.png)
+    ![Visual Studio Code のスクリーンショット。 Microsoft 365 エージェント ツールキット アイコンがアクティビティ バーで強調表示されています。](../media/LAB_01/m365-agents-toolkit-open.png)
 
 1. **[Lifecycle]** セクションで、**[Provision]** を選択します。
 
-    ![Teams Toolkit ビューを示す Visual Studio Code の のスクリーンショット。 [Lifecycle] セクションで 'Provision' 関数が強調表示されています。](../media/LAB_01/provision.png)
+    ![Microsoft 365 エージェント ツールキット ビューを示す Visual Studio Code のスクリーンショット。 [Lifecycle] セクションで 'Provision' 関数が強調表示されています。](../media/LAB_01/provision.png)
 
-1. プロンプトで、**[Sign in]** を選択し、プロンプトに従って Teams Toolkit を使用して Microsoft 365 テナントにサインインします。 プロビジョニング プロセスは、サインイン後に自動的に開始されます。
+1. プロンプトで、**[サインイン]** を選択し、プロンプトに従って Microsoft 365 エージェント ツールキットを使用して Microsoft 365 テナントにサインインします。 プロビジョニング プロセスは、サインイン後に自動的に開始されます。
 
     ![ユーザーに Microsoft 365 へのサインインを求める Visual Studio Code からのプロンプトのスクリーンショット。 [Sign in] ボタンが強調表示されています。](../media/LAB_01/provision-sign-in.png)
 
@@ -135,9 +135,9 @@ Visual Studio Code:
 
 次に、Microsoft 365 Copilot Chat で宣言型エージェントを実行し、その機能を検証してみましょう。
 
-1. **Activity Bar** で、**Teams Toolkit** 拡張機能を開きます。
+1. **アクティビティ バー**で、**[Microsoft 365 エージェント ツールキット]** 拡張機能を開きます。
 
-    ![Visual Studio Code のスクリーンショット。 Teams Toolkit アイコンがアクティビティ バーで強調表示されています。](../media/LAB_01/teams-toolkit-open.png)
+    ![Visual Studio Code のスクリーンショット。 Microsoft 365 エージェント ツールキット アイコンがアクティビティ バーで強調表示されています。](../media/LAB_01/m365-agents-toolkit-open.png)
 
 1. **[ライフサイクル]** セクションで、**[組織に公開する]** を選択します。 アクションが完了するまで待ちます。
 

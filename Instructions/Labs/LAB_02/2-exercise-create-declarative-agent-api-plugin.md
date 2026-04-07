@@ -4,8 +4,11 @@ lab:
   module: 'LAB 02: Build your first action for declarative agents with API plugin by using Visual Studio Code'
   description: この演習では、API はこのファイルをデータ ソースとして使用します。
   duration: 10 minutes
-  level: 100
+  level: 300
   islab: true
+  primarytopics:
+    - Microsoft 365
+    - Microsoft 365 Copilot
 ---
 
 # 演習 1 - プロジェクトをダウンロードしてファイルを調べる
@@ -25,7 +28,7 @@ lab:
     1. ダウンロードした ZIP ファイルの内容をコンピューター上の **Documents フォルダー**に展開します。
     1. Visual Studio Code でフォルダーを開きます。
 
-サンプル プロジェクトは、宣言型エージェントと Azure Functions で実行されている匿名 API を含む Teams Toolkit プロジェクトです。 宣言型エージェントは、Teams Toolkit を使用して新しく作成された宣言型エージェントと同じです。 API は架空のイタリア料理レストランに属しており、今日のメニューを参照して注文することができます。
+サンプル プロジェクトは、宣言型エージェントと Azure Functions で実行されている匿名 API を含む Microsoft 365 エージェント ツールキット プロジェクトです。 宣言型エージェントは、Microsoft 365 エージェント ツールキットを使用して新しく作成された宣言型エージェントと同じです。 API は架空のイタリア料理レストランに属しており、今日のメニューを参照して注文することができます。
 
 ## タスク 2 - API 定義を調べる
 

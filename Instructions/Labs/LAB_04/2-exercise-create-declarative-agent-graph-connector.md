@@ -4,8 +4,12 @@ lab:
   module: 'LAB 04: Add custom knowledge to declarative agents using Microsoft Graph connectors and Visual Studio Code'
   description: Copilot エージェントを Graph コネクタと統合する場合は、コネクタが作成した外部接続の ID を指定する必要があります。 通常、Graph コネクタは Copilot エージェントとは別にデプロイします。 この演習を完了するには、後の手順で参照する既存の Graph コネクタをデプロイします。
   duration: 10 minutes
-  level: 200
+  level: 300
   islab: true
+  primarytopics:
+    - Microsoft 365
+    - Microsoft 365 Copilot
+    - Microsoft Graph
 ---
 
 # 演習 1: Graph コネクタの外部接続を作成する
@@ -32,18 +36,18 @@ Visual Studio Code:
 
 1. ファイル メニューの **[Open folder...]** オプションを選択します。
 1. **Documents** フォルダーに抽出したプロジェクト フォルダーを開きます。
-1. **Activity Bar** (サイド バー) で、**[Teams Toolkit]** 拡張機能を開きます。
+1. **アクティビティ バー** (サイド バー) で、**[Microsoft 365 エージェント ツールキット]** 拡張機能を開きます。
 1. **Accounts** ペインで、**Microsoft 365 テナント**に接続されていることを確認します。
 1. **Accounts** ウィンドウで、**Azure サブスクリプション**に接続されていることを確認します。
 
-    ![サインインしているアカウントを示す Teams Toolkit のスクリーンショット。](../media/LAB_04/3-teams-toolkit-accounts.png)
+    ![サインインしているアカウントを示す Microsoft 365 エージェント ツールキットのスクリーンショット。](../media/LAB_04/3-m365-agents-toolkit-accounts.png)
 
 > [!NOTE]
 > 完全な Microsoft 365 Copilot ライセンスがない場合は、"Copilot Access Disabled" と表示されることがあります。 演習は引き続き完了できますが、Microsoft 365 Copilot Chat でエージェントを完全にテストできない場合があります。
 
 ## タスク 2: プロジェクトを実行し、Microsoft 365 への接続を作成する
 
-1. <kbd>F5</kbd> キーを押してプロジェクトを実行します。 Teams Toolkit は、Graph コネクタが Microsoft 365 テナントと通信できるようにする新しい Microsoft Entra アプリ登録をテナントに作成します。 また、Teams Toolkit は、Graph コネクタをホストする、タイマーによってトリガーされる Azure 関数も開始します。
+1. <kbd>F5</kbd> キーを押してプロジェクトを実行します。 Microsoft 365 エージェント ツールキットは、Graph コネクタが Microsoft 365 テナントと通信できるようにする新しい Microsoft Entra アプリ登録をテナントに作成します。 また、Microsoft 365 エージェント ツールキットは、Graph コネクタをホストする、タイマーによってトリガーされる Azure 関数も開始します。
 
 > [!IMPORTANT]
 > この手順の完了には最大 10 分以上かかることがあります。演習が完了するまで閉じないでください。

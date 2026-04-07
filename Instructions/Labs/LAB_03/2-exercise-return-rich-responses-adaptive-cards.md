@@ -4,8 +4,11 @@ lab:
   module: 'LAB 03: Use Adaptive Cards to show data in API plugins for declarative agents'
   description: サンプル API を使用すると、ユーザーはメニューを参照して注文できます。 注文の概要を表示するアダプティブ カードを作成しましょう。
   duration: 10 minutes
-  level: 100
+  level: 300
   islab: true
+  primarytopics:
+    - Microsoft 365
+    - Microsoft 365 Copilot
 ---
 
 # 演習 1 - プロジェクトをダウンロードし、アダプティブ カードをビルドする
@@ -25,7 +28,7 @@ lab:
   1. ダウンロードした ZIP ファイルの内容をコンピューター上の **Documents フォルダー**に展開します。
   1. Visual Studio Code でフォルダーを開きます。
 
-サンプル プロジェクトは、API プラグインを使用して構築されたアクションを含む宣言型エージェントを含む Teams Toolkit プロジェクトです。 API プラグインは、プロジェクトにも含まれる Azure Functions で実行されている匿名 API に接続します。 API は架空のイタリア料理レストランに属しており、今日のメニューを参照して注文することができます。
+サンプル プロジェクトは、API プラグインを使用して構築されたアクションを含む宣言型エージェントを含む Microsoft 365 エージェント ツールキット プロジェクトです。 API プラグインは、プロジェクトにも含まれる Azure Functions で実行されている匿名 API に接続します。 API は架空のイタリア料理レストランに属しており、今日のメニューを参照して注文することができます。
 
 ## タスク 2 - 料理のアダプティブ カードをビルドする
 
