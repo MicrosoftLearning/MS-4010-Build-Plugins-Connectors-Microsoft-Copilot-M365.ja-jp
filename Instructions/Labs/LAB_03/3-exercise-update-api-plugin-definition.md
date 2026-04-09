@@ -2,6 +2,10 @@
 lab:
   title: 演習 2 - API プラグイン定義を更新する
   module: 'LAB 03: Use Adaptive Cards to show data in API plugins for declarative agents'
+  description: 次の手順では、API プラグインの定義をアダプティブ カードで更新します。これは、API からのデータをユーザーに表示するために Copilot が使用する必要があります。
+  duration: 10 minutes
+  level: 200
+  islab: true
 ---
 
 # 演習 2 - API プラグイン定義を更新する
@@ -118,4 +122,4 @@ Visual Studio Code:
     }
     ```
 
-1. 変更を保存します。
+1. 変更を保存。

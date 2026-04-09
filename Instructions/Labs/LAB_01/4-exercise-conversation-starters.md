@@ -2,6 +2,13 @@
 lab:
   title: 演習 3 - 宣言型エージェントに会話スターターを追加する
   module: 'LAB 01: Build a declarative agent for Microsoft 365 Copilot using Visual Studio Code'
+  description: この演習では、ユーザーが質問できる質問の種類を理解するのに役立つサンプル プロンプトをユーザーに提供する会話スターターを含むように宣言型エージェントを更新します。
+  duration: 5 minutes
+  level: 300
+  islab: true
+  primarytopics:
+    - Microsoft 365
+    - Microsoft 365 Copilot
 ---
 
 # 演習 3 - 宣言型エージェントに会話スターターを追加する
@@ -96,7 +103,7 @@ Visual Studio Code:
 
 Visual Studio Code:
 
-1. **Activity Bar** で、**Teams Toolkit** 拡張機能を開きます。
+1. **アクティビティ バー**で、**[Microsoft 365 エージェント ツールキット]** 拡張機能を開きます。
 1. **[Lifecycle]** セクションで、**[Provision]** と **[Publish]** を選択します。
 1. **[Confirm]** をクリックして、アプリカタログのアップデートの送信を確認します。
 1. アップロードが完了するまで待ちます。

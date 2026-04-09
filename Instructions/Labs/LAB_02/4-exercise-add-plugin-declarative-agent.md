@@ -2,6 +2,13 @@
 lab:
   title: 演習 3 - プラグイン定義を宣言型エージェントに接続する
   module: 'LAB 02: Build your first action for declarative agents with API plugin by using Visual Studio Code'
+  description: この演習で構築する宣言型エージェントは、ユーザーが地元のイタリア料理レストランのメニューを閲覧して注文するのに役立ちます。 このシナリオに合わせてエージェントを最適化するには、名前、説明、手順を更新します。
+  duration: 5 minutes
+  level: 300
+  islab: true
+  primarytopics:
+    - Microsoft 365
+    - Microsoft 365 Copilot
 ---
 
 # 演習 3 - プラグイン定義を宣言型エージェントに接続する
@@ -37,7 +44,7 @@ Visual Studio Code:
       "$schema": "https://developer.microsoft.com/json-schemas/copilot/declarative-agent/v1.0/schema.json",
       "version": "v1.0",
       "name": "Declarative agent",
-      "description": "Declarative agent created with Teams Toolkit",
+      "description": "Declarative agent created with Microsoft 365 Agents Toolkit",
       "instructions": "$[file('instruction.txt')]",
       "actions": [
         {
@@ -168,7 +175,7 @@ Visual Studio Code:
 
 ## タスク 3 - API URL を更新する
 
-宣言型エージェントをテストする前に、API 仕様ファイル内の API の URL を更新する必要があります。 現在、URL は `http://localhost:7071/api` に設定されています。これは、Azure Functions がローカルで実行するときに使用する URL です。 ただし、Copilot がクラウドから API を呼び出す必要があるため、API をインターネットに公開する必要があります。 Teams Toolkit は、開発トンネルを作成することで、インターネット経由でローカル API を自動的に公開します。 プロジェクトのデバッグを開始するたびに、Teams ツールキットは新しい開発トンネルを開始し、その URL を **OPENAPI_SERVER_URL** 変数に格納します。 Teams Toolkit がトンネルを開始し、その URL を **.vscode/tasks.json** ファイルの **Start local tunnel** タスクに格納する方法を確認できます。
+宣言型エージェントをテストする前に、API 仕様ファイル内の API の URL を更新する必要があります。 現在、URL は `http://localhost:7071/api` に設定されています。これは、Azure Functions がローカルで実行するときに使用する URL です。 ただし、Copilot がクラウドから API を呼び出す必要があるため、API をインターネットに公開する必要があります。 Microsoft 365 エージェント ツールキットは、開発トンネルを作成することで、インターネット経由でローカル API を自動的に公開します。 プロジェクトのデバッグを開始するたびに、Microsoft 365 エージェント ツールキットは新しい開発トンネルを開始し、その URL を **OPENAPI_SERVER_URL** 変数に格納します。 Microsoft 365 エージェント ツールキットがトンネルを開始し、その URL を **.vscode/tasks.json** ファイルの **Start local tunnel** タスクに格納する方法を確認できます。
 
 ```json
 {

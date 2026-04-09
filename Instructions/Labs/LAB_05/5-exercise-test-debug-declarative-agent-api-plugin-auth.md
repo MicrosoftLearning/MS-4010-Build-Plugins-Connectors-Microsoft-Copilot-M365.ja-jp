@@ -2,6 +2,14 @@
 lab:
   title: '演習 4: Microsoft 365 Copilot Chat で宣言型エージェントをテストする'
   module: 'LAB 05: Authenticate your API plugin for declarative agents with secured APIs'
+  description: この演習では、宣言型エージェントをテストして Microsoft 365 に展開し、Microsoft 365 Copilot Chat を使用してテストします。
+  duration: 5 minutes
+  level: 300
+  islab: true
+  primarytopics:
+    - Microsoft 365
+    - Microsoft 365 Copilot
+    - Microsoft 365 Copilot Chat
 ---
 
 # 演習 4: Microsoft 365 Copilot で宣言型エージェントをテストする
@@ -26,10 +34,10 @@ lab:
 
 Visual Studio Code:
 
-1. Activity Bar で、**Teams Toolkit** 拡張機能を開きます。
-1. **Teams Toolkit** 拡張機能パネルの **Accounts** セクションで、Microsoft 365 テナントにサインインしていることを確認します。
+1. アクティビティ バーで、**[Microsoft 365 エージェント ツールキット]** 拡張機能をアクティブ化します。
+1. **[Microsoft 365 エージェント ツールキット]** 拡張機能パネルの **[Accounts]** セクションで、Microsoft 365 テナントにサインインしていることを確認します。
 
-    ![Microsoft 365 への接続の状態を示す Teams Toolkit のスクリーンショット。](../media/LAB_05/3-teams-toolkit-account.png)
+    ![Microsoft 365 への接続の状態を示す Microsoft 365 エージェント ツールキットのスクリーンショット。](../media/LAB_05/3-m365-agents-toolkit-accounts.png)
 
 1. Activity Barで、**[Run and Debug]** ビューに切り替えます。
 1. 構成の一覧から、**[Debug Copilot (Edge)]** を選択し、再生ボタンを押してデバッグを開始します。

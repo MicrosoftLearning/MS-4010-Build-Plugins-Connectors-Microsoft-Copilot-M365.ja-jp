@@ -1,7 +1,14 @@
 ---
 lab:
-  title: 導入
+  title: はじめに
   module: 'LAB 02: Build your first action for declarative agents with API plugin by using Visual Studio Code'
+  description: Microsoft 365 Copilot エージェントを使用すると、特定のシナリオに最適化された AI を利用したアシスタントを作成できます。 手順を使用して、エージェントのコンテキストを定義し、話し方や応答方法などの設定を指定します。 エージェントのスキルを構成することで、外部システムと対話したり、システム条件下で特定の動作をトリガーしたり、カスタム ワークフロー ロジックを使用したりできます。 スキルの種類の 1 つは、宣言型エージェントがデータの取得と変更の両方のために API と通信できるようにするアクションです。
+  duration: 35 minutes
+  level: 300
+  islab: true
+  primarytopics:
+    - Microsoft 365
+    - Microsoft 365 Copilot
 ---
 
 # はじめに

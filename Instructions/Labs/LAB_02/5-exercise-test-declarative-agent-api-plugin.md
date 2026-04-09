@@ -2,6 +2,13 @@
 lab:
   title: 演習 4 - Microsoft 365 Copilot で API プラグインを使用した宣言型エージェントをテストする
   module: 'LAB 02: Build your first action for declarative agents with API plugin by using Visual Studio Code'
+  description: 最後の手順では、Microsoft 365 Copilot の API プラグインを使用して宣言型エージェントをテストします。
+  duration: 10 minutes
+  level: 300
+  islab: true
+  primarytopics:
+    - Microsoft 365
+    - Microsoft 365 Copilot
 ---
 
 # 演習 4 - Microsoft 365 Copilot で API プラグインを使用した宣言型エージェントをテストする
@@ -18,10 +25,10 @@ lab:
 
 Visual Studio Code:
 
-1. **Activity Bar** で、**[Teams Toolkit]** を選択します。
+1. **アクティビティ バー**で、**[Microsoft 365 エージェント ツールキット]** を選択します。
 1. **[Accounts]** セクションで、Microsoft 365 Copilot を使用して Microsoft 365 テナントにサインインしていることを確認します。
 
-  ![Visual Studio Code での Teams Toolkit の [Accounts] セクションを示すスクリーンショット。](../media/LAB_02/3-teams-toolkit-accounts.png)
+  ![Visual Studio Code での Microsoft 365 エージェント ツールキットの [Accounts] セクションを示すスクリーンショット。](../media/LAB_02/m365-agents-toolkit-accounts.png)
 
 1. **Activity Bar** で **[Run and Debug]** を選択します。
 1. **[Debug in Copilot]** の構成を選択し、**[Start Debugging]** ボタンを使用してデバッグを開始します。  

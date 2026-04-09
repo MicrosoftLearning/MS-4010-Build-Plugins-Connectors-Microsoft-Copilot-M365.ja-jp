@@ -2,6 +2,14 @@
 lab:
   title: '演習 3: テストとデバッグ'
   module: 'LAB 04: Add custom knowledge to declarative agents using Microsoft Graph connectors and Visual Studio Code'
+  description: この演習では、宣言型エージェントをテストして Microsoft 365 に展開し、Microsoft 365 Copilot Chat を使用してテストします。
+  duration: 5 minutes
+  level: 300
+  islab: true
+  primarytopics:
+    - Microsoft 365
+    - Microsoft 365 Copilot
+    - Microsoft 365 Copilot Chat
 ---
 
 # 演習 3: テストとデバッグ
@@ -18,8 +26,8 @@ lab:
 
 Visual Studio Code:
 
-1. **Activity Bar** (サイド バー) で、**[Teams Toolkit]** 拡張機能を開きます。
-1. **Lifecycle** ペインで、**[Provision]** を選択します。 Teams Toolkit は、宣言型エージェント プロジェクトをアプリとしてパッケージ化し、Microsoft 365 にアップロードします。
+1. **アクティビティ バー** (サイド バー) で、**[Microsoft 365 エージェント ツールキット]** 拡張機能を開きます。
+1. **Lifecycle** ペインで、**[Provision]** を選択します。 Microsoft 365 エージェント ツールキットは、宣言型エージェント プロジェクトをアプリとしてパッケージ化し、Microsoft 365 にアップロードします。
 1. Web ブラウザーを開きます。
 
 Web ブラウザーで以下を行います。
