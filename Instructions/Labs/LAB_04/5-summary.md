@@ -1,3 +1,16 @@
+---
+lab:
+  title: まとめ
+  description: このラボでは、Microsoft Graph コネクタと統合された Microsoft 365 Copilot 用の宣言型エージェントを構築し、外部データに基づく信頼できる回答を提供できるようにしました。
+  duration: 10 minutes
+  level: 300
+  islab: false
+  primarytopics:
+    - Microsoft 365
+    - Microsoft 365 Copilot
+    - Microsoft Graph
+---
+
 IT ポリシーに関する同僚の質問に答えるために、組織のソリューションを構築することを検討しています。 ソリューションでは、ポリシー管理システムに格納されている権限のある情報を使用する必要があります。
 
 調査を行い、Microsoft Graph コネクタと統合された Microsoft 365 Copilot 用の宣言型エージェントを構築することが、次の理由からニーズに適していることがわかりました。

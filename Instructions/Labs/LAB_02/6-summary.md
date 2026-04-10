@@ -1,3 +1,15 @@
+---
+lab:
+  title: まとめ
+  description: このラボでは、匿名 API に接続する API プラグインと統合された Microsoft 365 Copilot 用の宣言型エージェントを構築し、ユーザーがレストラン メニューを参照して、自然言語を使用した注文が行えるようになりました。
+  duration: 10 minutes
+  level: 300
+  islab: false
+  primarytopics:
+    - Microsoft 365
+    - Microsoft 365 Copilot
+---
+
 あなたは、地元のレストランから食べ物を注文できる組織のソリューションを構築することを検討しています。 このソリューションでは、自然言語を使用し、Microsoft 365 Copilot と統合する必要があります。
 
 いくつかの調査を行い、API プラグインと統合された Microsoft 365 Copilot 用の宣言型エージェントを構築することが、次の理由からニーズに適していることがわかりました。
