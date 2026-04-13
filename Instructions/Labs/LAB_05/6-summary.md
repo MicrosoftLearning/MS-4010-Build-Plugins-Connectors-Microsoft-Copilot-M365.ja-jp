@@ -1,3 +1,15 @@
+---
+lab:
+  title: まとめ
+  description: このラボでは、Microsoft 365 Copilot 用の宣言型エージェントを API キーと OAuth 認証で保護された API プラグインと統合して構築し、セキュリティで保護された外部システムに接続できるようにしました。
+  duration: 10 minutes
+  level: 300
+  islab: false
+  primarytopics:
+    - Microsoft 365
+    - Microsoft 365 Copilot
+---
+
 あなたは、自分と同僚が、自然言語を使用して要求された修理に関する情報を簡単に検索できるように、車の修理店のソリューションを構築することを検討しています。
 
 いくつかの調査を行い、API プラグインと統合された Microsoft 365 Copilot 用の宣言型エージェントを構築することが、次の理由からニーズに適していることがわかりました。
